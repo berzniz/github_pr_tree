@@ -4,7 +4,7 @@ import Tree from './components/tree'
 import { createFileTree, createRootElement } from './lib'
 import './style.css'
 
-const { document, MutationObserver } = window
+const { document, MutationObserver, parseInt } = window
 
 let observer
 const observe = () => {
@@ -14,14 +14,25 @@ const observe = () => {
   observer.observe(pjaxContainer, { childList: true })
 }
 
+const renderTree = (rootElement) => {
+  const fileCount = parseInt((document.getElementById('files_tab_counter') || { innerText: 0 }).innerText, 10)
+  if (fileCount === 0) {
+    return
+  }
+  const { tree, count } = createFileTree()
+  render(<Tree root={tree} />, rootElement)
+  if (fileCount !== count) {
+    setTimeout(renderTree.bind(this, rootElement), 100)
+  }
+}
+
 const start = () => {
   observe()
   const rootElement = createRootElement()
   if (!rootElement) {
     return
   }
-  const tree = createFileTree()
-  render(<Tree root={tree} />, rootElement)
+  renderTree(rootElement)
 }
 
 observe()

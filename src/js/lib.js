@@ -33,5 +33,8 @@ export const createFileTree = () => {
     })
     location.href = href
   })
-  return tree
+  return {
+    tree,
+    count: fileInfo.length
+  }
 }
