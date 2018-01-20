@@ -1,0 +1,19 @@
+node_modules/*
+build
+*.zip
+
+.env
+*.tmp
+*.log
+
+# IntelliJ project files
+.idea
+*.iml
+*.ipr
+*.iws
+
+# Mac files
+*.DS_Store
+
+# Storybook
+storybook-static

@@ -1,0 +1,25 @@
+{
+  "name": "GitHub Pull Request Tree",
+  "short_name": "GitHub PRs",
+  "permissions": [
+    "*://*.github.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.github.com/*"
+      ],
+      "run_at": "document_idle",
+      "js": [
+        "better_github_prs.js"
+      ]
+    }
+  ],
+  "icons": {
+    "16": "16x16.png",
+    "48": "48x48.png",
+    "128": "128x128.png"
+  },
+  "manifest_version": 2,
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}

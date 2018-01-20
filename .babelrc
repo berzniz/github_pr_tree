@@ -1,0 +1,15 @@
+{
+  "presets": [
+    ["es2015", { "module": "false" }],
+    "react"
+  ],
+  "plugins": ["transform-object-rest-spread"],
+  "env": {
+    "development": {
+      "presets":["react-hmre"]
+    },
+    "test": {
+      "presets": ["es2017"]
+    }
+  }
+}
