@@ -13,6 +13,18 @@ export const createRootElement = () => {
   return element
 }
 
+const sorter = (a, b) => {
+  const isFileA = a.href
+  const isFileB = b.href
+  if (isFileA && isFileB) {
+    return (b.part > a.part) ? ((b.part < a.part) ? 1 : 0) : -1
+  } else if (isFileA && !isFileB) {
+    return 1
+  } else {
+    return -1
+  }
+}
+
 export const createFileTree = () => {
   const fileInfo = [...document.querySelectorAll('.file-info > a')]
   const files = fileInfo.map(({ title, href }) => ({ title, href, parts: title.split('/') }))
@@ -29,6 +41,7 @@ export const createFileTree = () => {
         node = { nodeLabel: part, list: [] }
         location.list.push(node)
       }
+      location.list = location.list.sort(sorter)
       location = node
     })
     location.href = href

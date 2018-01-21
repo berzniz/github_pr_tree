@@ -1,5 +1,7 @@
 @import '../../node_modules/react-treeview/react-treeview.css';
 
+/* Extension specific */
+
 #__better_github_pr {
     margin-top: 21px;
     padding: 10px;
@@ -9,8 +11,16 @@
     background-color: #ffffff;
 }
 
+/* GitHub page changes */
+
 .diff-view {
     padding-left: 250px;
+}
+
+.diff-view .file-header {
+    position: sticky;
+    top: 60px;
+    z-index: 1;
 }
 
 /* react-treeview */
@@ -67,12 +77,6 @@
 
 .tree-view a {
     margin-left: 23px;
-}
-
-.file-header {
-    position: sticky;
-    top: 60px;
-    z-index: 1;
 }
 
 /*
