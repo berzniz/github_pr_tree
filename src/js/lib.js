@@ -27,7 +27,10 @@ const sorter = (a, b) => {
 
 export const createFileTree = () => {
   const fileInfo = [...document.querySelectorAll('.file-info > a')]
-  const files = fileInfo.map(({ title, href }) => ({ title, href, parts: title.split('/') }))
+  const files = fileInfo.map(({ title, href }) => {
+    title = title.split(' → ')[0]
+    return { title, href, parts: title.split('/') }
+  })
   const tree = {
     nodeLabel: '/',
     list: []

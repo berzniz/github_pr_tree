@@ -5,10 +5,16 @@
 #__better_github_pr {
     margin-top: 21px;
     padding: 10px;
-    max-width: 240px;
+    width: 240px;
     overflow: auto;
-    height: calc(100vh - 60px);
-    background-color: #ffffff;
+    height: calc(100vh - 61px);
+    background-color: #fafbfc;
+    border: 1px solid #e1e4e8;
+}
+
+#__better_github_pr > div {
+    display: inline-block;
+    width: inherit;
 }
 
 /* GitHub page changes */
@@ -53,8 +59,7 @@
 }
 
 .tree-view_arrow:after {
-    /*content: url('data:image/svg+xml;uff8,<svg xmlns="http://www.w3.org/2000/svg" class="octicon octicon-file-directory" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M13 4H7V3c0-.66-.31-1-1-1H1c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1zM6 4H1V3h5v1z"></path></svg>');*/
-    content: url("data:image/svg+xml;uff8,<svg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 32 40' enableBackground='new 0 0 32 32' xmlSpace='preserve'><path fill='#adadad' d='M29.25,26.75H2.75V8.375h1.124c1.751,0,0.748-3.125,3-3.125c3.215,0,1.912,0,5.126,0  c2.251,0,1.251,3.125,3.001,3.125h14.25V26.75L29.25,26.75z' /></svg>");
+    content: url('data:image/svg+xml;uff8,<svg xmlns="http://www.w3.org/2000/svg" class="octicon octicon-file-directory" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill="#8197B0" fill-rule="evenodd" d="M13 4H7V3c0-.66-.31-1-1-1H1c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1zM6 4H1V3h5v1z"></path></svg>');
     height: 17px;
     width: 17px;
     display: inline-block;
@@ -75,8 +80,21 @@
     transform: rotate(90deg);
 }
 
-.tree-view a {
-    margin-left: 23px;
+#__better_github_pr a {
+    margin-left: 18px;
+    white-space: nowrap;
+}
+
+#__better_github_pr .tree-view a {
+    margin-left: 22px;
+}
+
+#__better_github_pr a:before {
+    content: url('data:image/svg+xml;uff8,<svg xmlns="http://www.w3.org/2000/svg" class="octicon octicon-file" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill="#999999" fill-rule="evenodd" d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"></path></svg>');
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+    transform: translateY(1px);
 }
 
 /*

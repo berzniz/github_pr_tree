@@ -1,7 +1,7 @@
 // const chromeWebStoreItemProperty = require('chrome-web-store-item-property')
 const webpack = require('webpack')
 const config = require('../webpack.config')
-// const chromeStoreId = ''
+// const chromeStoreId = 'nfhdjopbhlggibjlimhdbogflgmbiahc'
 // const bumpMinorVersion = (version) => {
 //   const splitVersion = version.split('.')
 //   splitVersion[2] = (1 + parseInt(splitVersion[2], 10))
