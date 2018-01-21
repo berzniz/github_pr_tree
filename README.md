@@ -5,13 +5,23 @@ Add a file tree to GitHub's Pull Request page
 
 ## Install
 
-Install from the chrome store: TBD
+Install from the Chrome web store: [GitHub Pull Request Tree](https://chrome.google.com/webstore/detail/nfhdjopbhlggibjlimhdbogflgmbiahc)
 
 ## Development
 
-```bash
-$ yarn install
-```
+1. Install:
+    ```bash
+    $ yarn install
+    ```
+
+2. Run
+    ```bash
+    $ yarn start
+    ```
+
+3. Make changes
+
+4. Click "Reload" on Chrome's "Manage Extensions" tab
 
 ## Who made this?
 
