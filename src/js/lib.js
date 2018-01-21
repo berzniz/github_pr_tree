@@ -14,10 +14,10 @@ export const createRootElement = () => {
 }
 
 const sorter = (a, b) => {
-  const isFileA = a.href
-  const isFileB = b.href
-  if (isFileA && isFileB) {
-    return (b.part > a.part) ? ((b.part < a.part) ? 1 : 0) : -1
+  const isFileA = Boolean(a.href)
+  const isFileB = Boolean(b.href)
+  if (isFileA === isFileB) {
+    return (b.nodeLabel > a.nodeLabel) ? -1 : ((a.nodeLabel > b.nodeLabel) ? 1 : 0)
   } else if (isFileA && !isFileB) {
     return 1
   } else {
@@ -35,16 +35,15 @@ export const createFileTree = () => {
 
   files.forEach(({ parts, href }) => {
     let location = tree
-    parts.forEach(part => {
+    parts.forEach((part, index) => {
       let node = location.list.find(node => node.nodeLabel === part)
       if (!node) {
-        node = { nodeLabel: part, list: [] }
+        node = { nodeLabel: part, list: [], href: (index === parts.length - 1) ? href : null }
         location.list.push(node)
       }
       location.list = location.list.sort(sorter)
       location = node
     })
-    location.href = href
   })
   return {
     tree,
