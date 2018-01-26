@@ -1,13 +1,10 @@
 import React from 'react'
 import TreeView from 'react-treeview'
+import File from './file'
 
 const Branch = ({ nodeLabel, list, href }) => {
   if (href) {
-    return (
-      <div>
-        <a href={href} className='link-gray-dark'>{nodeLabel}</a>
-      </div>
-    )
+    return <File name={nodeLabel} href={href} />
   }
 
   return (
