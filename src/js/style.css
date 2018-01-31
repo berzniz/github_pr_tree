@@ -4,13 +4,15 @@
 /* Extension specific */
 
 #__better_github_pr {
-    margin-top: 21px;
+    margin-top: 2opx;
     padding: 10px;
     width: 240px;
     overflow: auto;
     height: calc(100vh - 61px);
     background-color: #fafbfc;
     border: 1px solid #e1e4e8;
+    box-sizing: border-box;
+    border-radius: 3px;
 }
 
 #__better_github_pr > div {
