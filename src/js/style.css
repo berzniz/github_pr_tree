@@ -58,6 +58,10 @@
     vertical-align: middle;
     margin-right: 4px;
     transition: transform .2s;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
 }
 
 .tree-view_arrow:after {
@@ -76,10 +80,10 @@
 }
 
 .tree-view_arrow-collapsed:before {
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    transform: rotate(90deg);
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    transform: none;
 }
 
 .github-pr-file {
