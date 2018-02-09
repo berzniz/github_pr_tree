@@ -14,11 +14,15 @@ const observe = () => {
   observer.observe(pjaxContainer, { childList: true })
 }
 
-const renderTree = (rootElement) => {
+const renderTree = () => {
   const fileCount = parseInt((document.getElementById('files_tab_counter') || { innerText: 0 }).innerText, 10)
-  if (fileCount === 0) {
+  const rootElement = createRootElement()
+  const enabled = Boolean(rootElement && fileCount > 0)
+  document.body.classList.toggle('enable_better_github_pr', enabled)
+  if (!enabled) {
     return
   }
+
   const { tree, count } = createFileTree()
   render(<Tree root={tree} />, rootElement)
   if (fileCount !== count) {
@@ -28,11 +32,7 @@ const renderTree = (rootElement) => {
 
 const start = () => {
   observe()
-  const rootElement = createRootElement()
-  if (!rootElement) {
-    return
-  }
-  renderTree(rootElement)
+  renderTree()
 }
 
 observe()
