@@ -21,11 +21,12 @@
 
 /* GitHub page changes */
 
-.diff-view {
+.enable_better_github_pr .diff-view,
+.enable_better_github_pr .commit.full-commit.prh-commit {
     padding-left: 250px;
 }
 
-.diff-view .file-header {
+.enable_better_github_pr .diff-view .file-header {
     position: sticky;
     top: 60px;
     z-index: 1;
