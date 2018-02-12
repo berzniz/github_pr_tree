@@ -23,7 +23,7 @@
 
 .enable_better_github_pr .diff-view,
 .enable_better_github_pr .commit.full-commit.prh-commit {
-    padding-left: 250px;
+    margin-left: 250px;
 }
 
 .enable_better_github_pr .diff-view .file-header {
