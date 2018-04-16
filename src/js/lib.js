@@ -13,6 +13,19 @@ export const createRootElement = () => {
   return element
 }
 
+export const createToggleButton = () => {
+  const toggleElement = document.querySelector("div.pr-toolbar div.diffbar");
+  if (!toggleElement) return;
+  const elementId = '__toggle_better_github_pr'
+  let element = document.getElementById(elementId)
+  if (!element) {
+    element = document.createElement('div')
+    element.id = elementId
+    toggleElement.insertBefore(element, toggleElement.firstChild)
+  }
+  return element
+}
+
 const sorter = (a, b) => {
   const isFileA = Boolean(a.href)
   const isFileB = Boolean(b.href)
