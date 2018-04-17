@@ -117,6 +117,10 @@
     border-radius: 1em;
 }
 
+#__toggle_better_github_pr .switch.checked {
+    background: rgb(198, 228, 139);
+}
+
 #__toggle_better_github_pr .switch div {
     height: 15px;
     width: 15px;
@@ -132,6 +136,14 @@
     -webkit-transform: translate3d(100%, 0, 0);
     -moz-transform: translate3d(100%, 0, 0);
     transform: translate3d(100%, 0, 0);
+    background: #2cbe4e;
+}
+
+#__better_github_pr {
+    -webkit-transition: all 500ms ease-out 1s;
+    -moz-transition: all 500ms ease-out 1s;
+    -o-transition: all 500ms ease-out 1s;
+    transition: all 500ms ease-out 1s;
 }
 
 .enable_better_github_pr.__hide_better_github_pr #__better_github_pr {

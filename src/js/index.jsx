@@ -28,7 +28,7 @@ const renderTree = () => {
 
   const { tree, count } = createFileTree()
   render(<Tree root={tree} />, rootElement)
-  render(<ToggleButton action="on"/>, toggleElement)
+  render(<ToggleButton show='true' buttonText='Hide Tree' />, toggleElement)
   if (fileCount !== count) {
     setTimeout(renderTree.bind(this, rootElement), 100)
   }
