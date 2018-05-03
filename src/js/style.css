@@ -32,6 +32,10 @@
     z-index: 1;
 }
 
+.enable_better_github_pr .comment-holder {
+    max-width: 710px;
+}
+
 /* react-treeview */
 
 .tree-view_item {
