@@ -4,10 +4,10 @@ export const createRootElement = () => {
     return
   }
   const rootId = '__better_github_pr'
-  let element = document.getElementById(rootId)
+  let element = document.querySelector('.' + rootId)
   if (!element) {
     element = document.createElement('div')
-    element.id = rootId
+    element.className = rootId
     injectionElement.appendChild(element)
   }
   return element

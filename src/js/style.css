@@ -3,7 +3,13 @@
 
 /* Extension specific */
 
-#__better_github_pr {
+.__better_github_pr {
+    display: none;
+}
+
+.enable_better_github_pr .__better_github_pr {
+    display: block;
+    position: relative;
     margin-top: 20px;
     padding: 10px;
     width: 240px;
@@ -15,8 +21,17 @@
     border-radius: 3px;
 }
 
-#__better_github_pr > div {
+.__better_github_pr > div {
     display: inline-block;
+}
+
+.__better_github_pr .close_button {
+    background: none;
+    border: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px 2px;
 }
 
 /* GitHub page changes */
@@ -52,7 +67,7 @@
 }
 
 .tree-view_arrow:before {
-    content: url("data:image/svg+xml;uff8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' x='0px' y='0px' viewBox='0 0 100 125' enable-background='new 0 0 100 100' xml:space='preserve'><polygon stroke='#adadad' fill='#ffffff' stroke-width='6' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10' points='  82.626,50 17.374,87.674 17.374,12.326 82.626,50 17.374,87.674 17.374,12.326 '/></svg>");
+    content: url("data:image/svg+xml;uff8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' x='0px' y='0px' viewBox='0 0 100 125' enable-background='new 0 0 100 100' xml:space='preserve'><polygon stroke='%23adadad' fill='%23ffffff' stroke-width='6' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10' points='  82.626,50 17.374,87.674 17.374,12.326 82.626,50 17.374,87.674 17.374,12.326 '/></svg>");
     display: inline-block;
     height: 13px;
     width: 13px;
@@ -66,7 +81,7 @@
 }
 
 .tree-view_arrow:after {
-    content: url('data:image/svg+xml;uff8,<svg xmlns="http://www.w3.org/2000/svg" class="octicon octicon-file-directory" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill="#8197B0" fill-rule="evenodd" d="M13 4H7V3c0-.66-.31-1-1-1H1c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1zM6 4H1V3h5v1z"></path></svg>');
+    content: url('data:image/svg+xml;uff8,<svg xmlns="http://www.w3.org/2000/svg" class="octicon octicon-file-directory" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill="%238197B0" fill-rule="evenodd" d="M13 4H7V3c0-.66-.31-1-1-1H1c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1zM6 4H1V3h5v1z"></path></svg>');
     height: 17px;
     width: 17px;
     display: inline-block;
