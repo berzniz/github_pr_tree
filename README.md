@@ -23,6 +23,10 @@ Install from the Chrome web store: [GitHub Pull Request Tree](https://chrome.goo
 
 4. Click "Reload" on Chrome's "Manage Extensions" tab
 
+## History
+
+Find the change log here: [Changelog](https://github.com/berzniz/github_pr_tree/releases)
+
 ## Who made this?
 
 Tal Bereznitskey. Find me on Twitter as [@ketacode](https://twitter.com/ketacode).
