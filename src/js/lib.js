@@ -36,12 +36,13 @@ export const createFileTree = () => {
     list: []
   }
 
-  files.forEach(({ parts, href }) => {
+  files.forEach(({ parts, href }, index) => {
+    let has_comments = !!document.getElementsByClassName('diff-table')[index].querySelectorAll('.inline-comments').length;
     let location = tree
     parts.forEach((part, index) => {
       let node = location.list.find(node => node.nodeLabel === part)
       if (!node) {
-        node = { nodeLabel: part, list: [], href: (index === parts.length - 1) ? href : null }
+        node = { nodeLabel: part, list: [], href: (index === parts.length - 1) ? href : null, has_comments }
         location.list.push(node)
       }
       location.list = location.list.sort(sorter)
