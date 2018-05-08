@@ -25,6 +25,15 @@ const sorter = (a, b) => {
   }
 }
 
+const hasCommentsForFileIndex = (fileIndex) => {
+  const diffTable = document.getElementById(`diff-${fileIndex}`)
+  if (!diffTable) {
+    return 0
+  }
+
+  return diffTable.querySelectorAll('.inline-comments').length
+}
+
 export const createFileTree = () => {
   const fileInfo = [...document.querySelectorAll('.file-info > a')]
   const files = fileInfo.map(({ title, href }) => {
@@ -36,13 +45,13 @@ export const createFileTree = () => {
     list: []
   }
 
-  files.forEach(({ parts, href }, index) => {
-    let has_comments = !!document.getElementsByClassName('diff-table')[index].querySelectorAll('.inline-comments').length;
+  files.forEach(({ parts, href }, fileIndex) => {
     let location = tree
     parts.forEach((part, index) => {
       let node = location.list.find(node => node.nodeLabel === part)
       if (!node) {
-        node = { nodeLabel: part, list: [], href: (index === parts.length - 1) ? href : null, has_comments }
+        const hasComments = (hasCommentsForFileIndex(fileIndex) > 0)
+        node = { nodeLabel: part, list: [], href: (index === parts.length - 1) ? href : null, hasComments }
         location.list.push(node)
       }
       location.list = location.list.sort(sorter)
