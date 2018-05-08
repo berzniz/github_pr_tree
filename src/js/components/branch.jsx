@@ -2,9 +2,9 @@ import React from 'react'
 import TreeView from 'react-treeview'
 import File from './file'
 
-const Branch = ({ nodeLabel, list, href }) => {
+const Branch = ({ nodeLabel, list, href, hasComments }) => {
   if (href) {
-    return <File name={nodeLabel} href={href} />
+    return <File name={nodeLabel} href={href} hasComments={hasComments} />
   }
 
   return (
