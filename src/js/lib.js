@@ -42,7 +42,8 @@ export const createFileTree = () => {
   })
   const tree = {
     nodeLabel: '/',
-    list: []
+    list: [],
+    diffElements: []
   }
 
   files.forEach(({ parts, href }, fileIndex) => {
@@ -51,7 +52,15 @@ export const createFileTree = () => {
       let node = location.list.find(node => node.nodeLabel === part)
       if (!node) {
         const hasComments = (hasCommentsForFileIndex(fileIndex) > 0)
-        node = { nodeLabel: part, list: [], href: (index === parts.length - 1) ? href : null, hasComments }
+        const diffElement = document.getElementById(`diff-${fileIndex}`)
+        tree.diffElements.push(diffElement)
+        node = {
+          nodeLabel: part,
+          list: [],
+          href: (index === parts.length - 1) ? href : null,
+          hasComments,
+          diffElement
+        }
         location.list.push(node)
       }
       location.list = location.list.sort(sorter)
@@ -62,4 +71,22 @@ export const createFileTree = () => {
     tree,
     count: fileInfo.length
   }
+}
+
+export const isElementVisible = (el) => {
+  if (!el) {
+    return false
+  }
+
+  const GITHUB_HEADER_HEIGHT = 60
+
+  const rect = el.getBoundingClientRect()
+
+  const windowHeight = (window.innerHeight || document.documentElement.clientHeight)
+  const windowWidth = (window.innerWidth || document.documentElement.clientWidth)
+
+  const vertInView = (rect.top <= windowHeight) && ((rect.top + rect.height) >= GITHUB_HEADER_HEIGHT)
+  const horInView = (rect.left <= windowWidth) && ((rect.left + rect.width) >= 0)
+
+  return (vertInView && horInView)
 }
