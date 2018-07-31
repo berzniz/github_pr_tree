@@ -1,7 +1,7 @@
 {
   "name": "github_pr_tree",
   "version": "1.0.0",
-  "description": "Add a file tree to GitHub's Pull Request",
+  "description": "Add a file tree to GitHub Pull Requests",
   "scripts": {
     "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
     "build": "node utils/build.js",
