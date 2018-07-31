@@ -1,11 +1,11 @@
-# GitHub Pull Request Tree
+# Better Pull Requests for GitHub
 Add a file tree to GitHub's Pull Request page
 
 ![GitHub Pull Request](assets/screenshot.png "GitHub Pull Request")
 
 ## Install
 
-Install from the Chrome web store: [GitHub Pull Request Tree](https://chrome.google.com/webstore/detail/nfhdjopbhlggibjlimhdbogflgmbiahc)
+Install from the Chrome web store: [Better Pull Requests for GitHub](https://chrome.google.com/webstore/detail/nfhdjopbhlggibjlimhdbogflgmbiahc)
 
 ## Development
 
