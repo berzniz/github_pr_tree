@@ -116,3 +116,49 @@
 .github-pr-file > span {
     margin-right: 4px;
 }
+
+/* to make code container full width */
+.container.new-discussion-timeline.experiment-repo-nav {
+    width: 100%;
+}
+
+.container.new-discussion-timeline.experiment-repo-nav {
+    width: 100%
+}
+
+.container.new-discussion-timeline.experiment-repo-nav
+> .repository-content {
+    width: 100%;
+}
+
+.container.new-discussion-timeline.experiment-repo-nav
+> .repository-content > .issues-listing {
+    width: 100%
+}
+
+.container.new-discussion-timeline.experiment-repo-nav
+> .repository-content > .issues-listing > div#files_bucket {
+    width: 100%
+}
+
+.container.new-discussion-timeline.experiment-repo-nav
+> .repository-content > .issues-listing > div:not(#files_bucket) {
+    width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div#files_bucket > div{
+    width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div#files_bucket > div#files {
+    width: auto;
+    margin-left: 276px;
+}
+
+div#files_bucket > .pr-toolbar.js-sticky.js-sticky-offset-scroll {
+    width: 100%;
+}
