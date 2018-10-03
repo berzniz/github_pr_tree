@@ -24,7 +24,7 @@ const renderTree = () => {
     return
   }
 
-  let { tree, count } = createFileTree();
+  let { tree, count } = createFileTree()
   tree = folderConcat(tree)
   render(<Tree root={tree} />, rootElement)
   if (fileCount !== count) {
