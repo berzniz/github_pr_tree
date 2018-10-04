@@ -2,6 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import Tree from './components/tree'
 import { createFileTree, createRootElement } from './lib'
+import { folderConcat } from './folderconcat/folder-concat'
 import './style.css'
 
 const { document, MutationObserver, parseInt } = window
@@ -23,7 +24,8 @@ const renderTree = () => {
     return
   }
 
-  const { tree, count } = createFileTree()
+  let { tree, count } = createFileTree()
+  tree = folderConcat(tree)
   render(<Tree root={tree} />, rootElement)
   if (fileCount !== count) {
     setTimeout(renderTree.bind(this, rootElement), 100)
