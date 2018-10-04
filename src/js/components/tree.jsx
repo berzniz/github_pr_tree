@@ -2,9 +2,8 @@ import React from 'react'
 import Branch from './branch.jsx'
 import { isElementVisible } from '../lib'
 
-// Minimum and maximum resizable area width
-const MIN_WIDTH = 55
-const MAX_WIDTH = 700
+const MIN_RESIZE_WIDTH = 55
+const MAX_RESIZE_WIDTH = 700
 
 const widthLocalStorageKey = '__better_github_pr_tree_width'
 
@@ -25,11 +24,7 @@ class Tree extends React.Component {
     this.treeContainer = document.querySelector('.__better_github_pr')
     this.reviewContainers = document.querySelectorAll('.enable_better_github_pr .diff-view, .enable_better_github_pr .commit.full-commit.prh-commit')
 
-    // Set initial width from value saved to localStorrage
-    const savedWitdh = window.localStorage.getItem(widthLocalStorageKey)
-    if (savedWitdh) {
-      this.setWidth(parseInt(savedWitdh, 10))
-    }
+    this.setInitialWidth()
 
     this.state = {
       show: true,
@@ -101,14 +96,21 @@ class Tree extends React.Component {
     this.setWidth(0, false)
   }
 
+  setInitialWidth () {
+    const savedWitdh = window.localStorage.getItem(widthLocalStorageKey)
+    if (savedWitdh) {
+      this.setWidth(parseInt(savedWitdh, 10))
+    }
+  }
+
   setWidth (width, withConstraints = true) {
     if (withConstraints) {
-      if (width <= MIN_WIDTH) width = MIN_WIDTH
-      if (width >= MAX_WIDTH) width = MAX_WIDTH
+      if (width <= MIN_RESIZE_WIDTH) width = MIN_RESIZE_WIDTH
+      if (width >= MAX_RESIZE_WIDTH) width = MAX_RESIZE_WIDTH
     }
 
     this.treeContainer.style.width = `${width}px`
-    this.reviewContainers.forEach((element, index) => {
+    this.reviewContainers.forEach((element) => {
       element.style['margin-left'] = `${width + 10}px`
     })
   }

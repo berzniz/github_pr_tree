@@ -82,7 +82,6 @@
 .__better_github_pr_wide .container {
     min-width: 980px;
     width: 96% !important;
-    transition: width .2s ease;
 }
 
 .__better_github_pr_wide .repository-content .discussion-timeline {
@@ -108,6 +107,10 @@
 
 .enable_better_github_pr .comment-holder {
     max-width: 708px;
+}
+
+.enable_better_github_pr .container {
+    transition: width .2s ease;
 }
 
 /* react-treeview */
