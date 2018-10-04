@@ -34,6 +34,28 @@ const hasCommentsForFileIndex = (fileIndex) => {
   return diffTable.querySelectorAll('.inline-comments').length
 }
 
+export const folderConcat = (node) => {
+  const isFileOrEmpty = (node.list === undefined || node.list.length === 0 || (node.href !== null && node.href !== undefined))
+  if (isFileOrEmpty) {
+    return node
+  }
+
+  const hasSingleChild = (node.list.length === 1)
+  if (hasSingleChild) {
+    const collapsed = folderConcat(node.list[0])
+    const isLastCollapsedIsFolder = node.nodeLabel !== '/' && (collapsed.href === null || collapsed.href === undefined)
+    if (isLastCollapsedIsFolder) {
+      node.nodeLabel = node.nodeLabel + '/' + collapsed.nodeLabel
+      node.hasComments = collapsed.hasComments || node.hasComments
+      node.list = collapsed.list
+    }
+    return node
+  }
+
+  node.list.map(x => folderConcat(x))
+  return node
+}
+
 export const createFileTree = () => {
   const fileInfo = [...document.querySelectorAll('.file-info > a')]
   const files = fileInfo.map(({ title, href }) => {
@@ -68,7 +90,7 @@ export const createFileTree = () => {
     })
   })
   return {
-    tree,
+    tree: folderConcat(tree),
     count: fileInfo.length
   }
 }
