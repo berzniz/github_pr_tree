@@ -1,5 +1,11 @@
 # Better Pull Requests for GitHub
-Add a file tree to GitHub's Pull Request page
+
+Chrome browser extension to show a file tree on GitHub's Pull Request pages.
+
+- Browse pull requests with an IDE like file tree
+- Private repositories support out of the box
+- GitHub Enterprise support ([Instructions](https://github.com/berzniz/github_pr_tree/issues/3#issuecomment-362851512))
+- Other goodies: sticky file headers, resizable tree, expand to full width and more
 
 ![GitHub Pull Request](assets/screenshot.png "GitHub Pull Request")
 
@@ -19,9 +25,11 @@ Install from the Chrome web store: [Better Pull Requests for GitHub](https://chr
     $ yarn start
     ```
 
-3. Make changes
+3. Load the unpackaged `build` folder on Chrome's "Manage Extensions" tab   
 
-4. Click "Reload" on Chrome's "Manage Extensions" tab
+4. Make changes
+
+5. Click "Reload" on Chrome's "Manage Extensions" tab
 
 ## History
 
@@ -29,7 +37,7 @@ Find the change log here: [Changelog](https://github.com/berzniz/github_pr_tree/
 
 ## Who made this?
 
-Tal Bereznitskey. Find me on Twitter as [@ketacode](https://twitter.com/ketacode).
+Tal Bereznitskey. Find me on Twitter as [@ketacode](https://twitter.com/ketacode) and on [LinkedIn](https://www.linkedin.com/in/talbereznitskey).
 
 This is an open-source community project and is not endorsed or affiliated with GitHub.
 
