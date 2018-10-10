@@ -34,6 +34,16 @@ const hasCommentsForFileIndex = (fileIndex) => {
   return diffTable.querySelectorAll('.inline-comments').length
 }
 
+const isDeletedForFileIndex = (fileIndex) => {
+  const diffTable = document.getElementById(`diff-${fileIndex}`)
+  if (!diffTable) {
+    return false
+  }
+
+  const hiddenDiffReason = diffTable.querySelector('.hidden-diff-reason')
+  return hiddenDiffReason && (hiddenDiffReason.innerText.includes('file was deleted'))
+}
+
 export const folderConcat = (node) => {
   const isFileOrEmpty = (node.list === undefined || node.list.length === 0 || (node.href !== null && node.href !== undefined))
   if (isFileOrEmpty) {
@@ -47,6 +57,7 @@ export const folderConcat = (node) => {
     if (isLastCollapsedIsFolder) {
       node.nodeLabel = node.nodeLabel + '/' + collapsed.nodeLabel
       node.hasComments = collapsed.hasComments || node.hasComments
+      node.isDeleted = collapsed.isDeleted || node.isDeleted
       node.list = collapsed.list
     }
     return node
@@ -74,6 +85,7 @@ export const createFileTree = () => {
       let node = location.list.find(node => node.nodeLabel === part)
       if (!node) {
         const hasComments = (hasCommentsForFileIndex(fileIndex) > 0)
+        const isDeleted = isDeletedForFileIndex(fileIndex)
         const diffElement = document.getElementById(`diff-${fileIndex}`)
         tree.diffElements.push(diffElement)
         node = {
@@ -81,6 +93,7 @@ export const createFileTree = () => {
           list: [],
           href: (index === parts.length - 1) ? href : null,
           hasComments,
+          isDeleted,
           diffElement
         }
         location.list.push(node)
