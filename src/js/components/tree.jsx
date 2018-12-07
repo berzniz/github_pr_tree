@@ -22,7 +22,7 @@ class Tree extends React.Component {
     this.resizeDelta = 0
 
     this.treeContainer = document.querySelector('.__better_github_pr')
-    this.reviewContainers = document.querySelectorAll('.enable_better_github_pr .diff-view, .enable_better_github_pr .commit.full-commit.prh-commit')
+    this.reviewContainers = document.querySelectorAll('.enable_better_github_pr #files, .enable_better_github_pr .commit.full-commit.prh-commit')
 
     this.setInitialWidth()
 

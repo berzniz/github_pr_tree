@@ -94,12 +94,12 @@
 
 /* GitHub page changes */
 
-.enable_better_github_pr .diff-view,
+.enable_better_github_pr #files,
 .enable_better_github_pr .commit.full-commit.prh-commit {
     margin-left: 340px;
 }
 
-.enable_better_github_pr .diff-view .file-header {
+.enable_better_github_pr #files .file-header {
     position: sticky;
     top: 60px;
     z-index: 1;
