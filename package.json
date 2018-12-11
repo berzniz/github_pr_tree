@@ -38,7 +38,7 @@
     "write-file-webpack-plugin": "3.4.2"
   },
   "devDependencies": {
-    "husky": "^0.13.4",
+    "husky": "^1.2.0",
     "snazzy": "^7.0.0",
     "standard": "^10.0.2",
     "webstore-upload": "^0.0.7"
