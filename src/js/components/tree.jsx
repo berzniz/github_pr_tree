@@ -62,7 +62,9 @@ class Tree extends React.Component {
   }
 
   onMouseMove (e) {
-    if (!this.isResizing) return
+    if (!this.isResizing) {
+      return
+    }
 
     this.resizeDelta = e.clientX - this.startResizeX
     let newWidth = this.prevWidth + this.resizeDelta
@@ -70,7 +72,9 @@ class Tree extends React.Component {
   }
 
   onMouseUp () {
-    if (!this.isResizing) return
+    if (!this.isResizing) {
+      return
+    }
 
     this.isResizing = false
     this.treeContainer.classList.remove('__better_github_pr_noselect')
@@ -105,8 +109,12 @@ class Tree extends React.Component {
 
   setWidth (width, withConstraints = true) {
     if (withConstraints) {
-      if (width <= MIN_RESIZE_WIDTH) width = MIN_RESIZE_WIDTH
-      if (width >= MAX_RESIZE_WIDTH) width = MAX_RESIZE_WIDTH
+      if (width <= MIN_RESIZE_WIDTH) {
+        width = MIN_RESIZE_WIDTH
+      }
+      if (width >= MAX_RESIZE_WIDTH) {
+        width = MAX_RESIZE_WIDTH
+      }
     }
 
     this.treeContainer.style.width = `${width}px`
@@ -128,7 +136,7 @@ class Tree extends React.Component {
     }
 
     return (
-      <div >
+      <div>
         <button onClick={this.toggleDocumentFullWidth} className='__better_github_pr_full_width' title='Toggle maximum width of github content' />
         <button onClick={this.onClose} className='close_button'>✖</button>
         <div>
