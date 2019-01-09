@@ -8,6 +8,7 @@ const copyWebpackPlugins = [
 ]
 
 module.exports = {
+  mode: process.env.NODE_ENV || 'development',
   entry: path.join(__dirname, 'src', 'js', 'index.jsx'),
   output: {
     path: path.join(__dirname, 'build'),
@@ -32,10 +33,6 @@ module.exports = {
     modules: [path.resolve('node_modules')]
   },
   plugins: [
-    // expose and write the allowed env vars on the compiled bundle
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-    }),
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new CopyWebpackPlugin(copyWebpackPlugins),
     new WriteFilePlugin({

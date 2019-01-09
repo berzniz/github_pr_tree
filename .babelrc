@@ -1,12 +1,18 @@
 {
   "presets": [
-    ["es2015", { "module": "false" }],
-    "react"
+    [
+      "@babel/env",
+      {
+        "modules": "auto",
+        "useBuiltIns": "usage",
+        "debug": false
+      }
+    ],
+    "react-app"
   ],
-  "plugins": ["transform-object-rest-spread"],
   "env": {
-    "test": {
-      "presets": ["es2017"]
+    "development": {
+      "plugins": ["react-hot-loader/babel"]
     }
   }
 }
