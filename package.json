@@ -5,7 +5,7 @@
   "scripts": {
     "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
     "build": "node utils/build.js",
-    "start": "NODE_ENV=development node utils/start.js",
+    "start": "cross-env NODE_ENV=production node utils/start.js",
     "standard": "standard"
   },
   "dependencies": {
@@ -35,6 +35,7 @@
     "write-file-webpack-plugin": "^4.5.0"
   },
   "devDependencies": {
+    "cross-env": "^5.2.0",
     "husky": "^0.13.4",
     "snazzy": "^7.0.0",
     "standard": "^10.0.2",
