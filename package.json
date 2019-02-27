@@ -30,6 +30,7 @@
     "react-treeview": "^0.4.7",
     "source-map-support": "^0.4.15",
     "style-loader": "^0.23.1",
+    "webext-domain-permission-toggle": "^0.1.0",
     "webpack": "^4.28.1",
     "webpack-dev-server": "^3.1.14",
     "write-file-webpack-plugin": "^4.5.0"
@@ -39,6 +40,7 @@
     "husky": "^0.13.4",
     "snazzy": "^7.0.0",
     "standard": "^10.0.2",
+    "webext-dynamic-content-scripts": "^5.0.2",
     "webstore-upload": "^0.0.8"
   }
 }
