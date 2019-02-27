@@ -2,8 +2,19 @@
   "name": "Better Pull Request for GitHub",
   "short_name": "Better PRs",
   "permissions": [
+    "contextMenus",
     "*://*.github.com/*"
   ],
+  "optional_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  },
   "content_scripts": [
     {
       "matches": [
@@ -12,7 +23,8 @@
       "run_at": "document_idle",
       "js": [
         "better_github_prs.js"
-      ]
+      ],
+      "css": []
     }
   ],
   "icons": {

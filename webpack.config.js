@@ -9,10 +9,13 @@ const copyWebpackPlugins = [
 
 module.exports = {
   mode: process.env.NODE_ENV || 'development',
-  entry: path.join(__dirname, 'src', 'js', 'index.jsx'),
+  entry: {
+    better_github_prs: path.join(__dirname, 'src', 'js', 'index.jsx'),
+    background: path.join(__dirname, 'src', 'js', 'background.js')
+  },
   output: {
     path: path.join(__dirname, 'build'),
-    filename: 'better_github_prs.js'
+    filename: '[name].js'
   },
   module: {
     rules: [
