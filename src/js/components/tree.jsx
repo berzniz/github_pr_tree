@@ -1,6 +1,6 @@
 import React from 'react'
 import Branch from './branch.jsx'
-import { isElementVisible } from '../lib'
+import { createFileTree, isElementVisible } from '../lib'
 
 const MIN_RESIZE_WIDTH = 55
 const MAX_RESIZE_WIDTH = 700
@@ -17,6 +17,7 @@ class Tree extends React.Component {
     this.onMouseMove = this.onMouseMove.bind(this)
     this.onMouseUp = this.onMouseUp.bind(this)
     this.toggleDocumentFullWidth = this.toggleDocumentFullWidth.bind(this)
+    this.filterFiles = this.filterFiles.bind(this)
 
     this.isResizing = false
     this.resizeDelta = 0
@@ -27,6 +28,7 @@ class Tree extends React.Component {
     this.setInitialWidth()
 
     this.state = {
+      root: this.props.root,
       show: true,
       visibleElement: null
     }
@@ -127,9 +129,14 @@ class Tree extends React.Component {
     document.querySelector('body').classList.toggle('__better_github_pr_wide')
   }
 
+  filterFiles (event) {
+    this.setState({
+      root: createFileTree(event.target.value).tree
+    })
+  }
+
   render () {
-    const { root } = this.props
-    const { show, visibleElement } = this.state
+    const { root, show, visibleElement } = this.state
 
     if (!show) {
       return null
@@ -137,6 +144,7 @@ class Tree extends React.Component {
 
     return (
       <div>
+        <input type='text' className='__better_github_pr_file_filter' placeholder='Type to filter files' onChange={this.filterFiles} />
         <button onClick={this.toggleDocumentFullWidth} className='__better_github_pr_full_width' title='Toggle maximum width of github content' />
         <button onClick={this.onClose} className='close_button'>✖</button>
         <div>

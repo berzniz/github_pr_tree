@@ -44,6 +44,10 @@ const isDeletedForFileIndex = (fileIndex) => {
   return hiddenDiffReason && (hiddenDiffReason.innerText.includes('file was deleted'))
 }
 
+const filterItem = (item, filter) => {
+  return filter === EMPTY_FILTER || (item && (item.toLowerCase().indexOf(filter) > -1))
+}
+
 export const folderConcat = (node) => {
   const isFileOrEmpty = (node.list === undefined || node.list.length === 0 || (node.href !== null && node.href !== undefined))
   if (isFileOrEmpty) {
@@ -67,7 +71,7 @@ export const folderConcat = (node) => {
   return node
 }
 
-export const createFileTree = () => {
+export const createFileTree = (filter = EMPTY_FILTER) => {
   const fileInfo = [...document.querySelectorAll('.file-info > a')]
   const files = fileInfo.map(({ title, href }) => {
     title = title.split(' → ')[0]
@@ -81,26 +85,28 @@ export const createFileTree = () => {
 
   files.forEach(({ parts, href }, fileIndex) => {
     let location = tree
-    parts.forEach((part, index) => {
-      let node = location.list.find(node => node.nodeLabel === part)
-      if (!node) {
-        const hasComments = (hasCommentsForFileIndex(fileIndex) > 0)
-        const isDeleted = isDeletedForFileIndex(fileIndex)
-        const diffElement = document.getElementById(`diff-${fileIndex}`)
-        tree.diffElements.push(diffElement)
-        node = {
-          nodeLabel: part,
-          list: [],
-          href: (index === parts.length - 1) ? href : null,
-          hasComments,
-          isDeleted,
-          diffElement
+    if (filterItem(parts[parts.length - 1], filter)) {
+      parts.forEach((part, index) => {
+        let node = location.list.find(node => node.nodeLabel === part)
+        if (!node) {
+          const hasComments = (hasCommentsForFileIndex(fileIndex) > 0)
+          const isDeleted = isDeletedForFileIndex(fileIndex)
+          const diffElement = document.getElementById(`diff-${fileIndex}`)
+          tree.diffElements.push(diffElement)
+          node = {
+            nodeLabel: part,
+            list: [],
+            href: (index === parts.length - 1) ? href : null,
+            hasComments,
+            isDeleted,
+            diffElement
+          }
+          location.list.push(node)
         }
-        location.list.push(node)
-      }
-      location.list = location.list.sort(sorter)
-      location = node
-    })
+        location.list = location.list.sort(sorter)
+        location = node
+      })
+    }
   })
   return {
     tree: folderConcat(tree),
@@ -125,3 +131,5 @@ export const isElementVisible = (el) => {
 
   return (vertInView && horInView)
 }
+
+const EMPTY_FILTER = ''
