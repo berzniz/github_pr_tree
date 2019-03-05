@@ -16,6 +16,7 @@ const observe = () => {
 }
 
 const renderTree = () => {
+  const isFilteredToCommit = Boolean(document.querySelector('.js-commits-filtered'))
   const fileCount = parseInt((document.getElementById('files_tab_counter') || { innerText: 0 }).innerText, 10)
   const rootElement = createRootElement()
   const enabled = Boolean(rootElement && fileCount > 0)
@@ -26,6 +27,11 @@ const renderTree = () => {
 
   const { tree, count } = createFileTree()
   render(<Tree root={tree} />, rootElement)
+
+  if (isFilteredToCommit) {
+    return
+  }
+
   if (fileCount !== count) {
     setTimeout(renderTree.bind(this, rootElement), 100)
   }

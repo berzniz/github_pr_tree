@@ -30,7 +30,8 @@ class Tree extends React.Component {
     this.state = {
       root: this.props.root,
       show: true,
-      visibleElement: null
+      visibleElement: null,
+      filter: null
     }
   }
 
@@ -130,13 +131,15 @@ class Tree extends React.Component {
   }
 
   filterFiles (event) {
+    const filter = event.target.value || null
     this.setState({
-      root: createFileTree(event.target.value).tree
+      root: createFileTree(filter).tree,
+      filter
     })
   }
 
   render () {
-    const { root, show, visibleElement } = this.state
+    const { root, filter, show, visibleElement } = this.state
 
     if (!show) {
       return null
@@ -144,7 +147,7 @@ class Tree extends React.Component {
 
     return (
       <div>
-        <input type='text' className='__better_github_pr_file_filter' placeholder='Type to filter files' onChange={this.filterFiles} />
+        <input type='text' value={filter} className='__better_github_pr_file_filter' placeholder='Type to filter files' onChange={this.filterFiles} />
         <button onClick={this.toggleDocumentFullWidth} className='__better_github_pr_full_width' title='Toggle maximum width of github content' />
         <button onClick={this.onClose} className='close_button'>✖</button>
         <div>
