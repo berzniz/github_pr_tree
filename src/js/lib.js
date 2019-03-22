@@ -49,7 +49,7 @@ const filterItem = (item, filter) => {
     return true
   }
   
-  return item && (item.toLowerCase().indexOf(filter) > -1)
+  return item && item.toLowerCase().indexOf(filter) > -1
 }
 
 export const folderConcat = (node) => {
