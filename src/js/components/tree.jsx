@@ -34,6 +34,12 @@ class Tree extends React.Component {
       filter: null
     }
   }
+  
+  componentDidUpdate (prevProps) {
+    if (this.props.root !== prevProps.root) {
+      this.setState({root: this.props.root})
+    }
+  }
 
   componentDidMount () {
     window.addEventListener('DOMContentLoaded', this.onScroll, false)
@@ -139,8 +145,7 @@ class Tree extends React.Component {
   }
 
   render () {
-    const { filter, show, visibleElement } = this.state
-    const { root } = this.props
+    const { root, filter, show, visibleElement } = this.state
 
     if (!show) {
       return null
