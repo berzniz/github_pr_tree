@@ -45,7 +45,11 @@ const isDeletedForFileIndex = (fileIndex) => {
 }
 
 const filterItem = (item, filter) => {
-  return filter === EMPTY_FILTER || (item && (item.toLowerCase().indexOf(filter) > -1))
+  if (filter === null || filter.trim() === EMPTY_FILTER) {
+    return true
+  }
+  
+  return item && (item.toLowerCase().indexOf(filter) > -1)
 }
 
 export const folderConcat = (node) => {
