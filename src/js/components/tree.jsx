@@ -139,7 +139,8 @@ class Tree extends React.Component {
   }
 
   render () {
-    const { root, filter, show, visibleElement } = this.state
+    const { filter, show, visibleElement } = this.state
+    const { root } = this.props
 
     if (!show) {
       return null
