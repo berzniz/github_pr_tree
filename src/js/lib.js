@@ -48,7 +48,7 @@ const filterItem = (item, filter) => {
   if (filter === null || filter.trim() === EMPTY_FILTER) {
     return true
   }
-  
+
   return item && item.toLowerCase().indexOf(filter) > -1
 }
 

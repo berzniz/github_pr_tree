@@ -34,10 +34,10 @@ class Tree extends React.Component {
       filter: null
     }
   }
-  
+
   componentDidUpdate (prevProps) {
     if (this.props.root !== prevProps.root) {
-      this.setState({root: this.props.root})
+      this.setState({ root: this.props.root })
     }
   }
 

@@ -39,7 +39,7 @@
     "cross-env": "^5.2.0",
     "husky": "^0.13.4",
     "snazzy": "^7.0.0",
-    "standard": "^10.0.2",
+    "standard": "^12.0.1",
     "webext-dynamic-content-scripts": "^5.0.2",
     "webstore-upload": "^0.0.8"
   }

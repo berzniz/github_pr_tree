@@ -86,19 +86,6 @@
                                   supported by Chrome and Opera */
 }
 
-.__better_github_pr_wide .container {
-    min-width: 980px;
-    width: 96% !important;
-}
-
-.__better_github_pr_wide .repository-content .discussion-timeline {
-    width: calc(100% - 220px) !important;
-}
-
-.__better_github_pr_wide .repository-content .discussion-timeline .timeline-new-comment {
-    max-width: 100% !important;
-}
-
 /* GitHub page changes */
 
 .enable_better_github_pr #files,
