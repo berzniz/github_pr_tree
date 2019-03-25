@@ -34,6 +34,12 @@ class Tree extends React.Component {
       filter: null
     }
   }
+  
+  componentDidUpdate (prevProps) {
+    if (this.props.root !== prevProps.root) {
+      this.setState({root: this.props.root})
+    }
+  }
 
   componentDidMount () {
     window.addEventListener('DOMContentLoaded', this.onScroll, false)
