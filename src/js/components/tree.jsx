@@ -127,7 +127,7 @@ class Tree extends React.Component {
   }
 
   toggleDocumentFullWidth () {
-    document.querySelector('body').classList.toggle('__better_github_pr_wide')
+    document.querySelector('body').classList.toggle('full-width')
   }
 
   filterFiles (event) {
