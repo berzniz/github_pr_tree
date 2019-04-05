@@ -172,3 +172,24 @@
 .github-pr-file > span {
     margin-right: 4px;
 }
+
+.github-pr-file > span.changes > .number {
+  color: #888888;
+  margin-left: 8px;
+  margin-right: 4px;
+}
+
+.github-pr-file span.addition {
+    background-color: #6cc644;
+}
+
+.github-pr-file span.change-block {
+    display: inline-block;
+    height: 6px;
+    margin-right: 2px;
+    width: 6px;
+}
+
+.github-pr-file span.deletion {
+    background-color: #b22;
+}
