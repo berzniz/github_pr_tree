@@ -6,7 +6,9 @@
     "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
     "build": "node utils/build.js",
     "start": "cross-env NODE_ENV=production node utils/start.js",
-    "standard": "standard"
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
   },
   "dependencies": {
     "@babel/core": "^7.2.2",
@@ -38,9 +40,16 @@
   "devDependencies": {
     "cross-env": "^5.2.0",
     "husky": "^0.13.4",
+    "jest": "^24.7.1",
+    "sanitize-html": "^1.20.0",
     "snazzy": "^7.0.0",
     "standard": "^12.0.1",
     "webext-dynamic-content-scripts": "^5.0.2",
     "webstore-upload": "^0.0.8"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ]
   }
 }

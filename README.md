@@ -41,6 +41,13 @@ To enable the extension on your organization's domain:
 
 5. Click "Reload" on Chrome's "Manage Extensions" tab
 
+## Testing
+
+Run tests using jest:
+```bash
+$ yarn test
+```
+
 ## History
 
 Find the change log here: [Changelog](https://github.com/berzniz/github_pr_tree/releases)
