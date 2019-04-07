@@ -5,7 +5,7 @@
   "scripts": {
     "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
     "build": "node utils/build.js",
-    "start": "cross-env NODE_ENV=production node utils/start.js",
+    "start": "cross-env NODE_ENV=development node utils/start.js",
     "standard": "standard",
     "test": "jest --watch",
     "test-ci": "jest"

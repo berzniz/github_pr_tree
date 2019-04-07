@@ -1,0 +1,17 @@
+.container {
+    margin-top: 50px;
+    width: 500px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.label-enabled {
+    cursor: pointer;
+}
+
+.label-disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
