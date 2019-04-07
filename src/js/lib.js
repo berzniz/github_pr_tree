@@ -137,3 +137,20 @@ export const isElementVisible = (el) => {
 }
 
 const EMPTY_FILTER = ''
+
+export const StorageSync = {
+  save () {
+    return new Promise(resolve => {
+      const diffStats = document.getElementById('diffStats').checked
+      window.chrome.storage.sync.set({ diffStats }, resolve)
+    })
+  },
+  get () {
+    return new Promise(resolve => {
+      const defaults = {
+        diffStats: false
+      }
+      window.chrome.storage.sync.get(defaults, resolve)
+    })
+  }
+}

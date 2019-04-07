@@ -3,6 +3,7 @@
   "short_name": "Better PRs",
   "permissions": [
     "contextMenus",
+    "storage",
     "*://*.github.com/*"
   ],
   "optional_permissions": [
@@ -27,6 +28,7 @@
       "css": []
     }
   ],
+  "options_page": "options.html",
   "icons": {
     "16": "16x16.png",
     "48": "48x48.png",
