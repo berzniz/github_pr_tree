@@ -25,6 +25,26 @@ const sorter = (a, b) => {
   }
 }
 
+const parseChangeNumber = (n) => {
+  if (!n.replace) return 0
+  const number = parseInt(n.replace(',', ''), 10)
+  return isNaN(number) ? 0 : number
+}
+
+/**
+ * Get the diff statistics (number of additions and deletions) for a file.
+ */
+const getDiffStatsForDiffElement = (diffElement) => {
+  const diffStatSpan = diffElement.getElementsByClassName('diffstat')[0]
+  const changesTxt = diffStatSpan && diffStatSpan.getAttribute('aria-label')
+  const changes = changesTxt &&
+    changesTxt.match(/([\d,]*) additions? & ([\d,]*) deletions?/)
+  return changes && {
+    additions: parseChangeNumber(changes[1]),
+    deletions: parseChangeNumber(changes[2])
+  }
+}
+
 const hasCommentsForFileIndex = (fileIndex) => {
   const diffTable = document.getElementById(`diff-${fileIndex}`)
   if (!diffTable) {
@@ -103,7 +123,8 @@ export const createFileTree = (filter = EMPTY_FILTER) => {
             href: (index === parts.length - 1) ? href : null,
             hasComments,
             isDeleted,
-            diffElement
+            diffElement,
+            diffStats: getDiffStatsForDiffElement(diffElement)
           }
           location.list.push(node)
         }
