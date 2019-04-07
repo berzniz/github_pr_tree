@@ -31,7 +31,7 @@ class Tree extends React.Component {
       root: this.props.root,
       show: true,
       visibleElement: null,
-      filter: null
+      filter: ''
     }
   }
 
@@ -137,7 +137,7 @@ class Tree extends React.Component {
   }
 
   filterFiles (event) {
-    const filter = event.target.value || null
+    const filter = event.target.value || ''
     this.setState({
       root: createFileTree(filter).tree,
       filter

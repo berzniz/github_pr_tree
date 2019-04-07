@@ -1,43 +1,49 @@
 import React from 'react'
 import fileIcons from 'file-icons-js'
+import DiffStats from './diffStats'
+import { StorageSync } from '../lib'
 
 const highlightColor = '#ebebeb'
 const transparentColor = 'transparent'
 
-const AdditionBlock = <span className='change-block addition' />
-const DeletionBlock = <span className='change-block deletion' />
+class File extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {}
+  }
 
-const File = ({ name, href, hasComments, isDeleted, isVisible, diffStats }) => {
-  const className = fileIcons.getClassWithColor(name)
-  const style = {
-    background: isVisible ? highlightColor : transparentColor,
-    textDecoration: isDeleted ? 'line-through' : null
-  }
-  const changeBlocks = []
-  let changeNumber
-  if (diffStats) {
-    for (let i = 0; i < Math.log(diffStats.additions); i++) {
-      changeBlocks.push(AdditionBlock)
+  async componentDidMount () {
+    const options = await StorageSync.get()
+
+    if (this.unmounted) {
+      return
     }
-    for (let i = 0; i < Math.log(diffStats.deletions); i++) {
-      changeBlocks.push(DeletionBlock)
-    }
-    changeNumber = diffStats.additions + diffStats.deletions
-    changeNumber = changeNumber.toLocaleString()
+
+    this.setState({ options })
   }
-  return (
-    <div className='github-pr-file' style={style}>
-      <span className={`icon ${className}`} />
-      <a href={href} className='link-gray-dark'>{name}</a>
-      {diffStats &&
-        <span className='changes'>
-          <span className='number'>{changeNumber}</span>
-          {changeBlocks}
-        </span>
-      }
-      {hasComments ? ' 💬' : ''}
-    </div>
-  )
+
+  componentWillUnmount () {
+    this.unmounted = true
+  }
+
+  render () {
+    const { name, href, hasComments, isDeleted, isVisible, diffStats } = this.props
+    const { options = {} } = this.state
+    const className = fileIcons.getClassWithColor(name)
+    const style = {
+      background: isVisible ? highlightColor : transparentColor,
+      textDecoration: isDeleted ? 'line-through' : null
+    }
+
+    return (
+      <div className='github-pr-file' style={style}>
+        <span className={`icon ${className}`} />
+        <a href={href} className='link-gray-dark'>{name}</a>
+        {options.diffStats && diffStats && <DiffStats diffStats={diffStats} />}
+        {hasComments ? ' 💬' : ''}
+      </div>
+    )
+  }
 }
 
 export default File

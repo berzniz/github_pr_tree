@@ -31,9 +31,6 @@ const parseChangeNumber = (n) => {
   return isNaN(number) ? 0 : number
 }
 
-/**
- * Get the diff statistics (number of additions and deletions) for a file.
- */
 const getDiffStatsForDiffElement = (diffElement) => {
   const diffStatSpan = diffElement.getElementsByClassName('diffstat')[0]
   const changesTxt = diffStatSpan && diffStatSpan.getAttribute('aria-label')
