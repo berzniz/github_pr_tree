@@ -1,7 +1,7 @@
 import React from 'react'
 import fileIcons from 'file-icons-js'
-import DiffStats from './diffStats'
-import { StorageSync } from '../lib'
+import DiffStats from '../diffStats'
+import { StorageSync } from '../../lib'
 
 const highlightColor = '#ebebeb'
 const transparentColor = 'transparent'

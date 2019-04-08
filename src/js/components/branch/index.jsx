@@ -1,6 +1,6 @@
 import React from 'react'
 import TreeView from 'react-treeview'
-import File from './file'
+import File from '../file'
 
 const Branch = ({ nodeLabel, list, href, hasComments, isDeleted, diffElement, diffStats, visibleElement }) => {
   if (href) {

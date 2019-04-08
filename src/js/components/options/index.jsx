@@ -1,5 +1,5 @@
 import React from 'react'
-import { StorageSync } from '../lib'
+import { StorageSync } from '../../lib'
 
 const url = 'https://chrome.google.com/webstore/detail/github-pull-request-tree/nfhdjopbhlggibjlimhdbogflgmbiahc'
 
