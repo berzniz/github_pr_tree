@@ -30,7 +30,7 @@
     margin-top: 20px;
     padding: 0 10px 0;
     width: 330px;
-    height: calc(100vh - 61px);
+    height: calc(100vh - 68px);
     background-color: #ffffff;
     border: 1px solid #e1e4e8;
     box-sizing: border-box;
@@ -38,12 +38,16 @@
 }
 
 .__better_github_pr > div {
+    height: calc(100% - 55px);
+}
+
+.__better_github_pr .file-container {
     overflow: auto;
     height: 100%;
     padding-bottom: 10px;
 }
 
-.__better_github_pr > div > div {
+.__better_github_pr .file-container > div {
     width: fit-content;
 }
 
@@ -211,11 +215,22 @@
 
 .github-pr-file span.change-block {
     display: inline-block;
+    vertical-align: middle;
     height: 6px;
-    margin-right: 2px;
     width: 6px;
+    margin-right: 2px;
 }
 
 .github-pr-file span.deletion {
     background-color: #b22;
+}
+
+.github-pr-file-highlight-filter {
+    background: #fffbdd;
+}
+
+.github-pr-file-comment {
+    margin-left: 3px;
+    position: relative;
+    top: 2px;
 }

@@ -162,6 +162,7 @@ class Tree extends React.Component {
 
     return (
       <div>
+        <div className='_better_github_pr_resizer' ref={node => { this.resizer = node }} />
         <Actions
           filter={filter}
           filterFiles={this.filterFiles}
@@ -169,13 +170,14 @@ class Tree extends React.Component {
           onOptions={this.onOptions}
           onClose={this.onClose}
         />
-        <div>
-          <div className='_better_github_pr_resizer' ref={node => { this.resizer = node }} />
-          {root.list.map(node => (
-            <span key={node.nodeLabel}>
-              <Branch {...node} visibleElement={visibleElement} />
-            </span>
-          ))}
+        <div className='file-container'>
+          <div>
+            {root.list.map(node => (
+              <span key={node.nodeLabel}>
+                <Branch {...node} visibleElement={visibleElement} filter={filter} />
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     )
