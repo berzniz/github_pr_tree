@@ -29,6 +29,7 @@
     }
   ],
   "options_page": "options.html",
+  "web_accessible_resources": ["options.html"],
   "icons": {
     "16": "16x16.png",
     "48": "48x48.png",

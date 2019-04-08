@@ -1,6 +1,7 @@
 import React from 'react'
-import Branch from './branch.jsx'
-import { createFileTree, isElementVisible } from '../lib'
+import Actions from '../actions'
+import Branch from '../branch'
+import { createFileTree, isElementVisible } from '../../lib'
 
 const MIN_RESIZE_WIDTH = 55
 const MAX_RESIZE_WIDTH = 700
@@ -16,7 +17,7 @@ class Tree extends React.Component {
     this.onResizerMouseDown = this.onResizerMouseDown.bind(this)
     this.onMouseMove = this.onMouseMove.bind(this)
     this.onMouseUp = this.onMouseUp.bind(this)
-    this.toggleDocumentFullWidth = this.toggleDocumentFullWidth.bind(this)
+    this.onFullWidth = this.onFullWidth.bind(this)
     this.filterFiles = this.filterFiles.bind(this)
 
     this.isResizing = false
@@ -102,11 +103,23 @@ class Tree extends React.Component {
     }
   }
 
+  onOptions () {
+    if (window.chrome.runtime.openOptionsPage) {
+      window.chrome.runtime.openOptionsPage()
+    } else {
+      window.open(window.chrome.runtime.getURL('options.html'))
+    }
+  }
+
   onClose () {
     const show = false
     this.setState({ show })
     document.body.classList.toggle('enable_better_github_pr', show)
     this.setWidth(0, false)
+  }
+
+  onFullWidth () {
+    document.querySelector('body').classList.toggle('full-width')
   }
 
   setInitialWidth () {
@@ -132,10 +145,6 @@ class Tree extends React.Component {
     })
   }
 
-  toggleDocumentFullWidth () {
-    document.querySelector('body').classList.toggle('full-width')
-  }
-
   filterFiles (event) {
     const filter = event.target.value || ''
     this.setState({
@@ -153,9 +162,13 @@ class Tree extends React.Component {
 
     return (
       <div>
-        <input type='text' value={filter} className='__better_github_pr_file_filter' placeholder='Type to filter files' onChange={this.filterFiles} />
-        <button onClick={this.toggleDocumentFullWidth} className='__better_github_pr_full_width' title='Toggle maximum width of github content' />
-        <button onClick={this.onClose} className='close_button'>✖</button>
+        <Actions
+          filter={filter}
+          filterFiles={this.filterFiles}
+          onFullWidth={this.onFullWidth}
+          onOptions={this.onOptions}
+          onClose={this.onClose}
+        />
         <div>
           <div className='_better_github_pr_resizer' ref={node => { this.resizer = node }} />
           {root.list.map(node => (
