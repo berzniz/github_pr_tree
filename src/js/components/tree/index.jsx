@@ -1,7 +1,8 @@
 import React from 'react'
 import Actions from '../actions'
 import Branch from '../branch'
-import { createFileTree, isElementVisible } from '../../lib'
+import { createFileTree, isElementVisible, StorageSync } from '../../lib'
+import BodyColor from '../bodyColor'
 
 const MIN_RESIZE_WIDTH = 55
 const MAX_RESIZE_WIDTH = 700
@@ -32,7 +33,8 @@ class Tree extends React.Component {
       root: this.props.root,
       show: true,
       visibleElement: null,
-      filter: ''
+      filter: '',
+      options: {}
     }
   }
 
@@ -42,7 +44,7 @@ class Tree extends React.Component {
     }
   }
 
-  componentDidMount () {
+  async componentDidMount () {
     window.addEventListener('DOMContentLoaded', this.onScroll, false)
     window.addEventListener('load', this.onScroll, false)
     window.addEventListener('scroll', this.onScroll, false)
@@ -51,6 +53,11 @@ class Tree extends React.Component {
     this.resizer.addEventListener('mousedown', this.onResizerMouseDown, false)
     document.addEventListener('mousemove', this.onMouseMove, false)
     document.addEventListener('mouseup', this.onMouseUp, false)
+
+    const options = await StorageSync.get()
+    if (!this.unmounted) {
+      this.setState({ options })
+    }
   }
 
   componentWillUnmount () {
@@ -62,6 +69,8 @@ class Tree extends React.Component {
     this.resizer.removeEventListener('mousedown', this.onResizerMouseDown, false)
     document.removeEventListener('mousemove', this.onMouseMove, false)
     document.removeEventListener('mouseup', this.onMouseUp, false)
+
+    this.unmounted = true
   }
 
   onResizerMouseDown () {
@@ -154,7 +163,7 @@ class Tree extends React.Component {
   }
 
   render () {
-    const { root, filter, show, visibleElement } = this.state
+    const { root, filter, show, visibleElement, options } = this.state
 
     if (!show) {
       return null
@@ -179,6 +188,7 @@ class Tree extends React.Component {
             ))}
           </div>
         </div>
+        <BodyColor isDark={options.darkMode} />
       </div>
     )
   }
