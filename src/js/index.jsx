@@ -39,7 +39,7 @@ class Top extends React.Component {
     }
 
     if (fileCount !== count) {
-      setTimeout(renderTree.bind(this, this.calculateTree.bind(this)), 100)
+      setTimeout(this.calculateTree.bind(this), 100)
     }
   }
 
