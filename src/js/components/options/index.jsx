@@ -1,5 +1,6 @@
 import React from 'react'
 import { StorageSync } from '../../lib'
+import BodyColor from '../bodyColor'
 
 const url = 'https://chrome.google.com/webstore/detail/github-pull-request-tree/nfhdjopbhlggibjlimhdbogflgmbiahc'
 
@@ -22,6 +23,7 @@ class Options extends React.Component {
   render () {
     return (
       <div className='container'>
+        <BodyColor isDark={this.state.darkMode} />
         <div className='text-center'>
           <h1>Better Pull Request</h1>
           <p>
@@ -43,9 +45,14 @@ class Options extends React.Component {
             <span className='label-body'>Show <strong>Diff Stats</strong> next to files</span>
           </label>
 
-          <label className='label-disabled'>
-            <input type='checkbox' disabled />
-            <span className='label-body'>Enable <strong>Dark Mode</strong> (coming soon)</span>
+          <label className='label-enabled'>
+            <input
+              id='darkMode'
+              type='checkbox'
+              checked={Boolean(this.state.darkMode)}
+              onChange={this.updateOptions}
+            />
+            <span className='label-body'>Enable <strong>Dark Mode</strong></span>
           </label>
         </div>
       </div>

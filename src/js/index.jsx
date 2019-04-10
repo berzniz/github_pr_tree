@@ -15,8 +15,44 @@ const observe = () => {
   observer.observe(pjaxContainer, { childList: true })
 }
 
+class Top extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      tree: null
+    }
+  }
+
+  componentDidMount () {
+    this.calculateTree()
+  }
+
+  calculateTree () {
+    const isFilteredToCommit = Boolean(document.querySelector('.js-commits-filtered'))
+    const fileCount = parseInt((document.getElementById('files_tab_counter') || { innerText: 0 }).innerText, 10)
+    const { tree, count } = createFileTree()
+
+    this.setState({ tree })
+
+    if (isFilteredToCommit) {
+      return
+    }
+
+    if (fileCount !== count) {
+      setTimeout(renderTree.bind(this, this.calculateTree.bind(this)), 100)
+    }
+  }
+
+  render () {
+    const { tree } = this.state
+    if (!tree) {
+      return null
+    }
+    return <Tree root={tree} />
+  }
+}
+
 const renderTree = () => {
-  const isFilteredToCommit = Boolean(document.querySelector('.js-commits-filtered'))
   const fileCount = parseInt((document.getElementById('files_tab_counter') || { innerText: 0 }).innerText, 10)
   const rootElement = createRootElement()
   const enabled = Boolean(rootElement && fileCount > 0)
@@ -25,16 +61,7 @@ const renderTree = () => {
     return
   }
 
-  const { tree, count } = createFileTree()
-  render(<Tree root={tree} />, rootElement)
-
-  if (isFilteredToCommit) {
-    return
-  }
-
-  if (fileCount !== count) {
-    setTimeout(renderTree.bind(this, rootElement), 100)
-  }
+  render(<Top />, rootElement)
 }
 
 const start = () => {

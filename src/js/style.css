@@ -100,12 +100,6 @@
     padding: 0;
 }
 
-.__better_github_pr .actions .full-width-button {
-    width: 16px;
-    height: 16px;
-    cursor: pointer;
-}
-
 .__better_github_pr_noselect {
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -197,6 +191,15 @@
     padding-left: 18px;
     padding-top: 2px;
     padding-bottom: 2px;
+    background: transparent;
+}
+
+.github-pr-file.github-pr-file-highlight {
+    background: #ebebeb;
+}
+
+.github-pr-file.github-pr-file-deleted {
+    text-decoration: line-through;
 }
 
 .github-pr-file > span {
@@ -233,4 +236,49 @@
     margin-left: 3px;
     position: relative;
     top: 2px;
+}
+
+/* Dark mode */
+
+.__better_github_pr_dark_mode .__better_github_pr {
+    background-color: #282923;
+    color: #ffffff;
+}
+
+.__better_github_pr_dark_mode .__better_github_pr .link-gray-dark {
+    color: #ffffff !important;
+}
+
+.__better_github_pr_dark_mode .github-pr-file > span.changes > .number {
+    color: #999999;
+}
+
+.__better_github_pr_dark_mode .github-pr-file.github-pr-file-highlight,
+.__better_github_pr_dark_mode .tree-view_item:hover {
+    background-color: #42433E;
+}
+
+.__better_github_pr_dark_mode .__better_github_pr .actions-filter {
+    background-color: #42433E;
+    border-color: #333333;
+    color: #ffffff;
+}
+
+.__better_github_pr_dark_mode .__better_github_pr .actions-filter:focus {
+    border-color: #000000;
+}
+
+.__better_github_pr_dark_mode .__better_github_pr .actions-filter::placeholder {
+    color: #ffffff;
+}
+
+.__better_github_pr_dark_mode .__better_github_pr .settings-button,
+.__better_github_pr_dark_mode .__better_github_pr .close-button,
+.__better_github_pr_dark_mode .__better_github_pr .full-width-button {
+    color: #ffffff;
+}
+
+.__better_github_pr_dark_mode .__better_github_pr .github-pr-file-highlight-filter {
+    background: #e4af3c;
+    color: #333333;
 }

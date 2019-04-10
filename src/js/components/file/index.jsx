@@ -3,9 +3,6 @@ import fileIcons from 'file-icons-js'
 import DiffStats from '../diffStats'
 import { StorageSync } from '../../lib'
 
-const highlightColor = '#ebebeb'
-const transparentColor = 'transparent'
-
 class File extends React.Component {
   constructor (props) {
     super(props)
@@ -43,16 +40,17 @@ class File extends React.Component {
     const { name, href, hasComments, isDeleted, isVisible, diffStats, filter } = this.props
     const { options = {} } = this.state
     const className = fileIcons.getClassWithColor(name)
-    const style = {
-      background: isVisible ? highlightColor : transparentColor,
-      textDecoration: isDeleted ? 'line-through' : null
-    }
+    const topClassName = [
+      'github-pr-file',
+      isVisible && 'github-pr-file-highlight',
+      isDeleted && 'github-pr-file-deleted'
+    ].filter(Boolean).join(' ')
 
     const index = filter ? (name.toLowerCase() || '').indexOf(filter.toLowerCase()) : -1
     const highlightedName = (index === -1) ? name : this.getHighlight({ name, filter, index })
 
     return (
-      <div className='github-pr-file' style={style}>
+      <div className={topClassName}>
         <span className={`icon ${className}`} />
         <a href={href} className='link-gray-dark'>{highlightedName}</a>
         {options.diffStats && diffStats && <DiffStats diffStats={diffStats} />}
