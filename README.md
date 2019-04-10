@@ -5,6 +5,7 @@ Chrome browser extension to show a file tree on GitHub's Pull Request pages.
 - Browse pull requests with an IDE like file tree
 - Private repositories support out of the box
 - GitHub Enterprise support
+- Dark mode
 - Other goodies: sticky file headers, resizable tree, expand to full width and more
 
 ![GitHub Pull Request](assets/screenshot.png "GitHub Pull Request")
