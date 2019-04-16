@@ -241,6 +241,7 @@
 /* Dark mode */
 
 .__better_github_pr_dark_mode .__better_github_pr {
+    border-color: #484848;
     background-color: #282923;
     color: #ffffff;
 }
