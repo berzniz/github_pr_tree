@@ -241,12 +241,9 @@
 /* Dark mode */
 
 .__better_github_pr_dark_mode .__better_github_pr {
-    background-color: #282923;
-    color: #ffffff;
-}
-
-.__better_github_pr_dark_mode .__better_github_pr .link-gray-dark {
-    color: #ffffff !important;
+    border-color: #484848;
+    background-color: #202020;
+    color: #bebebe;
 }
 
 .__better_github_pr_dark_mode .github-pr-file > span.changes > .number {
