@@ -8,6 +8,7 @@ const MIN_RESIZE_WIDTH = 55
 const MAX_RESIZE_WIDTH = 700
 
 const widthLocalStorageKey = '__better_github_pr_tree_width'
+const fullScreenStorageKey = '__better_github_pr_full_screen'
 
 class Tree extends React.Component {
   constructor (props) {
@@ -28,6 +29,10 @@ class Tree extends React.Component {
     this.reviewContainers = document.querySelectorAll('.enable_better_github_pr #files, .enable_better_github_pr .commit.full-commit.prh-commit')
 
     this.setInitialWidth()
+
+    if (window.localStorage.getItem(fullScreenStorageKey) === 'true') {
+      document.querySelector('body').classList.add('full-width')
+    }
 
     this.state = {
       root: this.props.root,
@@ -128,13 +133,14 @@ class Tree extends React.Component {
   }
 
   onFullWidth () {
-    document.querySelector('body').classList.toggle('full-width')
+    const fullScreenState = document.querySelector('body').classList.toggle('full-width')
+    window.localStorage.setItem(fullScreenStorageKey, fullScreenState)
   }
 
   setInitialWidth () {
-    const savedWitdh = window.localStorage.getItem(widthLocalStorageKey)
-    if (savedWitdh) {
-      this.setWidth(parseInt(savedWitdh, 10))
+    const savedWidth = window.localStorage.getItem(widthLocalStorageKey)
+    if (savedWidth) {
+      this.setWidth(parseInt(savedWidth, 10))
     }
   }
 
