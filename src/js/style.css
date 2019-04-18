@@ -246,6 +246,10 @@
     color: #bebebe;
 }
 
+.__better_github_pr_dark_mode .__better_github_pr .link-gray-dark {
+    color: #bebebe !important;
+}
+
 .__better_github_pr_dark_mode .github-pr-file > span.changes > .number {
     color: #999999;
 }
