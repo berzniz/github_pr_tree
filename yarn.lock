@@ -1133,6 +1133,30 @@
   dependencies:
     "@babel/types" "^7.3.0"
 
+"@types/chrome@0.0.86":
+  version "0.0.86"
+  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.86.tgz#1026ef8e76db4fde1859cae858d73236fe670d69"
+  integrity sha512-7ehebPf/5IR64SYdD2Vig0q0oUCNbWMQ29kASlNJaHVVtA5/J/DnrxnYVPCID70o7LgHdYsav6I4/XdqAxjTLQ==
+  dependencies:
+    "@types/filesystem" "*"
+
+"@types/filesystem@*":
+  version "0.0.29"
+  resolved "https://registry.yarnpkg.com/@types/filesystem/-/filesystem-0.0.29.tgz#ee3748eb5be140dcf980c3bd35f11aec5f7a3748"
+  integrity sha512-85/1KfRedmfPGsbK8YzeaQUyV1FQAvMPMTuWFQ5EkLd2w7szhNO96bk3Rh/SKmOfd9co2rCLf0Voy4o7ECBOvw==
+  dependencies:
+    "@types/filewriter" "*"
+
+"@types/filewriter@*":
+  version "0.0.28"
+  resolved "https://registry.yarnpkg.com/@types/filewriter/-/filewriter-0.0.28.tgz#c054e8af4d9dd75db4e63abc76f885168714d4b3"
+  integrity sha1-wFTor02d11205jq8dviFFocU1LM=
+
+"@types/firefox-webext-browser@^67.0.2":
+  version "67.0.2"
+  resolved "https://registry.yarnpkg.com/@types/firefox-webext-browser/-/firefox-webext-browser-67.0.2.tgz#04625d3294fbca54bccf42dae43f636c5b6452a2"
+  integrity sha512-tXR5THtH5Fqwfmi4y/2dTxCTebqHsKCH2bif/VdE5CPcB/S5x5fu+N+wBuMENzN41agovHMU/LQbtWNV+Aux+w==
+
 "@types/istanbul-lib-coverage@^2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@types/istanbul-lib-coverage/-/istanbul-lib-coverage-2.0.0.tgz#1eb8c033e98cf4e1a4cedcaf8bcafe8cb7591e85"
@@ -2395,6 +2419,13 @@ content-disposition@0.5.2:
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/content-disposition/-/content-disposition-0.5.2.tgz#0cf68bb9ddf5f2be7961c3a85178cb85dba78cb4"
   integrity sha1-DPaLud318r55YcOoUXjLhdunjLQ=
+
+content-scripts-register-polyfill@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/content-scripts-register-polyfill/-/content-scripts-register-polyfill-1.0.0.tgz#21bc2df475ea48aa83737d24675a6a44e4a006a7"
+  integrity sha512-DiHscMTyL5evEg6C8GSkkd5Kfkma726zxqIt+zv6L2W/gVqYOUZUw2F27BpAUp9nQZnIrky5Gx1eYA9Fw4+aeA==
+  dependencies:
+    "@types/firefox-webext-browser" "^67.0.2"
 
 content-type@~1.0.4:
   version "1.0.4"
@@ -8225,22 +8256,32 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   dependencies:
     minimalistic-assert "^1.0.0"
 
-webext-content-script-ping@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/webext-content-script-ping/-/webext-content-script-ping-2.0.1.tgz#efccbb795929631008dc08b21c5b34f6cb524b2a"
-  integrity sha512-37oaeT0GwwkIC8JUD5aToOr0ncdoml/kjZdsn5ckyKyZqpNQHYxhP3NhnqsSx25LpxGfJm8er/IPv9pzCLcfUA==
+webext-additional-permissions@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/webext-additional-permissions/-/webext-additional-permissions-0.1.0.tgz#bc5a2a6cb8e60098c81a6004c446bfae2aefd85a"
+  integrity sha512-eA1o6BdRbpU5ClL6GcmwhGtVVzNTbQSqX9esakpurWYVt9ykpGQ1ZNe5l30Yt19GW0eRC8VdroOeJSumP5cMpQ==
+  dependencies:
+    "@types/chrome" "0.0.86"
 
 webext-domain-permission-toggle@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/webext-domain-permission-toggle/-/webext-domain-permission-toggle-0.1.0.tgz#82c0f611a075958e5b879fd77f69908236615607"
   integrity sha512-zPwVKYa5EiH0htXedmoAWUaMqU7pOr+4dlzFyGVM64Q0jLVo3V8AVcYOVDKtY+c9qOkhtoSUCGcXCnbs5u8eNg==
 
-webext-dynamic-content-scripts@^5.0.2:
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/webext-dynamic-content-scripts/-/webext-dynamic-content-scripts-5.0.2.tgz#cac7ebbe632303713c2bbe7a5181b032af61a11e"
-  integrity sha512-Y2FMB5Rz29UzQ7eUi9lcNUDeAAhvDDY7Ga1UcCbaHmu6ro3tJpJlzgk7HWaxOBuCtsfFyhZPmitC59n6PGlBFA==
+webext-dynamic-content-scripts@^6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/webext-dynamic-content-scripts/-/webext-dynamic-content-scripts-6.0.1.tgz#00772648a90e68db2e24609e256b87a4363f3a63"
+  integrity sha512-e0OchJSb1fiwscqVY5Fy5wHYgwY4hLnfdDhnNBFFj91v0gQhVPCyXYxqAO+HAEiqAfaU7NzluFjssfshccfN5Q==
   dependencies:
-    webext-content-script-ping "^2.0.1"
+    "@types/chrome" "0.0.86"
+    content-scripts-register-polyfill "^1.0.0"
+    webext-additional-permissions "^0.1.0"
+    webext-permissions-events-polyfill "^1.0.1"
+
+webext-permissions-events-polyfill@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/webext-permissions-events-polyfill/-/webext-permissions-events-polyfill-1.0.1.tgz#c5108d140b03efbd06b34c7211694b8cde928177"
+  integrity sha512-dPsU7KtDn+OG+mPy0LLc9UhMXdVeQ8ywD5kK1GFtvceur4IWOnpI5D4uTjMPrKm8+re/8cbHKwVjnviIA9wZ3Q==
 
 webidl-conversions@^2.0.0:
   version "2.0.1"
