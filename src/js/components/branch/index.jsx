@@ -5,6 +5,8 @@ import File from '../file'
 const Branch = ({ nodeLabel, list, href, hasComments, isDeleted, diffElement, diffStats, visibleElement, filter }) => {
   if (href) {
     const isVisible = (diffElement === visibleElement)
+    const checkbox = diffElement.querySelector('.js-reviewed-checkbox')
+    const isViewed = checkbox && checkbox.checked
     return (
       <File
         name={nodeLabel}
@@ -13,6 +15,7 @@ const Branch = ({ nodeLabel, list, href, hasComments, isDeleted, diffElement, di
         isDeleted={isDeleted}
         isVisible={isVisible}
         diffStats={diffStats}
+        isViewed={isViewed}
         filter={filter}
       />
     )

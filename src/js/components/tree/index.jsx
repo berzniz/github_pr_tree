@@ -21,6 +21,7 @@ class Tree extends React.Component {
     this.onMouseUp = this.onMouseUp.bind(this)
     this.onFullWidth = this.onFullWidth.bind(this)
     this.filterFiles = this.filterFiles.bind(this)
+    this.onClick = this.onClick.bind(this)
 
     this.isResizing = false
     this.resizeDelta = 0
@@ -58,6 +59,7 @@ class Tree extends React.Component {
     this.resizer.addEventListener('mousedown', this.onResizerMouseDown, false)
     document.addEventListener('mousemove', this.onMouseMove, false)
     document.addEventListener('mouseup', this.onMouseUp, false)
+    document.addEventListener('click', this.onClick, false)
 
     const options = await StorageSync.get()
     if (!this.unmounted) {
@@ -74,6 +76,7 @@ class Tree extends React.Component {
     this.resizer.removeEventListener('mousedown', this.onResizerMouseDown, false)
     document.removeEventListener('mousemove', this.onMouseMove, false)
     document.removeEventListener('mouseup', this.onMouseUp, false)
+    document.removeEventListener('click', this.onClick, false)
 
     this.unmounted = true
   }
@@ -103,6 +106,12 @@ class Tree extends React.Component {
     this.isResizing = false
     this.treeContainer.classList.remove('__better_github_pr_noselect')
     window.localStorage.setItem(widthLocalStorageKey, this.treeContainer.offsetWidth)
+  }
+  
+  onClick (e) {
+    if (e.target.type === 'checkbox') {
+      setTimeout(() => this.setState({ root: this.props.root }), 0)
+    }
   }
 
   onScroll () {
