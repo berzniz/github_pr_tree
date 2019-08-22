@@ -1,7 +1,7 @@
 import React from 'react'
 import Actions from '../actions'
 import Branch from '../branch'
-import { createFileTree, isElementVisible, StorageSync } from '../../lib'
+import { createFileTree, isElementVisible, StorageSync, isFileViewed } from '../../lib'
 import BodyColor from '../bodyColor'
 
 const MIN_RESIZE_WIDTH = 55
@@ -107,7 +107,7 @@ class Tree extends React.Component {
     this.treeContainer.classList.remove('__better_github_pr_noselect')
     window.localStorage.setItem(widthLocalStorageKey, this.treeContainer.offsetWidth)
   }
-  
+
   onClick (e) {
     if (e.target.type === 'checkbox') {
       setTimeout(() => this.setState({ root: this.props.root }), 0)
@@ -177,6 +177,23 @@ class Tree extends React.Component {
     })
   }
 
+  calculateProgress (node) {
+    if (!node.list || node.list.length === 0) {
+      const { additions = 0, deletions = 0 } = node.diffStats || {}
+      const total = additions + deletions
+      const isViewed = isFileViewed(node.diffElement)
+      const viewed = isViewed ? total : 0
+      return { total, viewed }
+    }
+    return node.list.reduce((res, node) => {
+      const nodeProgress = this.calculateProgress(node)
+      return {
+        total: res.total + nodeProgress.total,
+        viewed: res.viewed + nodeProgress.viewed
+      }
+    }, { total: 0, viewed: 0 })
+  }
+
   render () {
     const { root, filter, show, visibleElement, options } = this.state
 
@@ -184,8 +201,14 @@ class Tree extends React.Component {
       return null
     }
 
+    const { total, viewed } = this.calculateProgress(root)
+    const progress = Number(viewed / total * 100).toFixed(2)
+
     return (
       <div>
+        <div>
+          <p><b>Code review progress</b>: {progress}%</p>
+        </div>
         <div className='_better_github_pr_resizer' ref={node => { this.resizer = node }} />
         <Actions
           filter={filter}
