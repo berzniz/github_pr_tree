@@ -1,12 +1,12 @@
 import React from 'react'
 import TreeView from 'react-treeview'
 import File from '../file'
+import { isFileViewed } from '../../lib'
 
 const Branch = ({ nodeLabel, list, href, hasComments, isDeleted, diffElement, diffStats, visibleElement, filter }) => {
   if (href) {
     const isVisible = (diffElement === visibleElement)
-    const checkbox = diffElement.querySelector('.js-reviewed-checkbox')
-    const isViewed = checkbox && checkbox.checked
+    const isViewed = isFileViewed(diffElement)
     return (
       <File
         name={nodeLabel}
