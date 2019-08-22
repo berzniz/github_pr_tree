@@ -3,6 +3,7 @@ import Actions from '../actions'
 import Branch from '../branch'
 import { createFileTree, isElementVisible, StorageSync, isFileViewed } from '../../lib'
 import BodyColor from '../bodyColor'
+import Progress from '../progress'
 
 const MIN_RESIZE_WIDTH = 55
 const MAX_RESIZE_WIDTH = 700
@@ -202,12 +203,13 @@ class Tree extends React.Component {
     }
 
     const { total, viewed } = this.calculateProgress(root)
-    const progress = Number(viewed / total * 100).toFixed(2)
+    const progress = Number(viewed / total * 100).toFixed(1)
 
     return (
       <div>
-        <div>
-          <p><b>Code review progress</b>: {progress}%</p>
+        <div style={{ 'margin-top': '10px' }}>
+          <span>Review progress:</span>
+          <Progress progress={progress} />
         </div>
         <div className='_better_github_pr_resizer' ref={node => { this.resizer = node }} />
         <Actions
