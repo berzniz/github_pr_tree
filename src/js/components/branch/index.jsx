@@ -3,7 +3,7 @@ import TreeView from 'react-treeview'
 import File from '../file'
 import { isFileViewed } from '../../lib'
 
-const Branch = ({ nodeLabel, list, href, hasComments, isDeleted, diffElement, diffStats, visibleElement, filter }) => {
+const Branch = ({ nodeLabel, list, href, hasComments, isAdded, isDeleted, diffElement, diffStats, visibleElement, filter }) => {
   if (href) {
     const isVisible = (diffElement === visibleElement)
     const isViewed = isFileViewed(diffElement)
@@ -12,6 +12,7 @@ const Branch = ({ nodeLabel, list, href, hasComments, isDeleted, diffElement, di
         name={nodeLabel}
         href={href}
         hasComments={hasComments}
+        isAdded={isAdded}
         isDeleted={isDeleted}
         isVisible={isVisible}
         diffStats={diffStats}

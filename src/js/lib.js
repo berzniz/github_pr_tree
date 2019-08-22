@@ -61,6 +61,16 @@ const isDeletedForFileIndex = (fileIndex) => {
   return hiddenDiffReason && (hiddenDiffReason.innerText.includes('file was deleted'))
 }
 
+const isAddedForFileIndex = (fileIndex) => {
+  const diffTable = document.getElementById(`diff-${fileIndex}`)
+  if (!diffTable) {
+    return false
+  }
+
+  const diff = diffTable.querySelector('td.blob-code.blob-code-inner.blob-code-hunk')
+  return diff && diff.innerText && diff.innerText.startsWith('@@ -0,0')
+}
+
 const filterItem = (item, filter) => {
   if (filter === null || filter.trim() === EMPTY_FILTER) {
     return true
@@ -112,6 +122,7 @@ export const createFileTree = (filter = EMPTY_FILTER) => {
         if (!node) {
           const hasComments = (hasCommentsForFileIndex(fileIndex) > 0)
           const isDeleted = isDeletedForFileIndex(fileIndex)
+          const isAdded = isAddedForFileIndex(fileIndex)
           const diffElement = document.getElementById(`diff-${fileIndex}`)
           tree.diffElements.push(diffElement)
           node = {
@@ -119,6 +130,7 @@ export const createFileTree = (filter = EMPTY_FILTER) => {
             list: [],
             href: (index === parts.length - 1) ? href : null,
             hasComments,
+            isAdded,
             isDeleted,
             diffElement,
             diffStats: getDiffStatsForDiffElement(diffElement)

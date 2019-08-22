@@ -36,14 +36,18 @@ class File extends React.Component {
     )
   }
 
+  hrefStyle (isAdded, isDeleted) {
+    const color = isAdded ? 'green' : isDeleted ? 'darkred' : '#0366d6'
+    return { color }
+  }
+
   render () {
-    const { name, href, hasComments, isDeleted, isVisible, diffStats, filter, isViewed } = this.props
+    const { name, href, hasComments, isAdded, isDeleted, isVisible, diffStats, filter, isViewed } = this.props
     const { options = {} } = this.state
     const className = fileIcons.getClassWithColor(name)
     const topClassName = [
       'github-pr-file',
       isVisible && 'github-pr-file-highlight',
-      isDeleted && 'github-pr-file-deleted',
       isViewed && 'github-pr-file-viewed'
     ].filter(Boolean).join(' ')
 
@@ -53,7 +57,7 @@ class File extends React.Component {
     return (
       <div className={topClassName}>
         <span className={`icon ${className}`} />
-        <a href={href} className='link-gray-dark'>{highlightedName}</a>
+        <a href={href} style={this.hrefStyle(isAdded, isDeleted)}>{highlightedName}</a>
         {options.diffStats && diffStats && <DiffStats diffStats={diffStats} />}
         {hasComments ? (
           <svg className='github-pr-file-comment octicon octicon-comment text-gray' viewBox='0 0 16 16' width='16' height='16' aria-hidden='true'>

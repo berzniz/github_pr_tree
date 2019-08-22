@@ -199,10 +199,6 @@
     background: #ebebeb;
 }
 
-.github-pr-file.github-pr-file-deleted {
-    text-decoration: line-through;
-}
-
 .github-pr-file.github-pr-file-viewed {
     font-weight: normal;
 }
@@ -249,10 +245,6 @@
     border-color: #484848;
     background-color: #202020;
     color: #bebebe;
-}
-
-.__better_github_pr_dark_mode .__better_github_pr .link-gray-dark {
-    color: #bebebe !important;
 }
 
 .__better_github_pr_dark_mode .github-pr-file > span.changes > .number {
