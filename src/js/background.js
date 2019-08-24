@@ -1,5 +1,4 @@
-import DPT from 'webext-domain-permission-toggle'
-import DCS from 'webext-dynamic-content-scripts'
+import 'webext-dynamic-content-scripts'
+import {addContextMenu} from 'webext-domain-permission-toggle'
 
-DPT.addContextMenu()
-DCS.addToFutureTabs()
+addContextMenu()
