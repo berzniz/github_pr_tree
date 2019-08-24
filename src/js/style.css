@@ -117,12 +117,6 @@
     margin-left: 340px;
 }
 
-.enable_better_github_pr #files .file-header {
-    position: sticky;
-    top: 60px;
-    z-index: 1;
-}
-
 .enable_better_github_pr .comment-holder {
     max-width: 708px;
 }
