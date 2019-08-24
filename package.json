@@ -44,7 +44,7 @@
     "sanitize-html": "^1.20.0",
     "snazzy": "^7.0.0",
     "standard": "^12.0.1",
-    "webext-dynamic-content-scripts": "^5.0.2",
+    "webext-dynamic-content-scripts": "^6.0.3",
     "webstore-upload": "^0.0.8"
   },
   "standard": {
