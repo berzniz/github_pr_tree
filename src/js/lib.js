@@ -69,6 +69,13 @@ const filterItem = (item, filter) => {
   return item && item.toLowerCase().indexOf(filter) > -1
 }
 
+const getCurrentFileLocation = (title) => {
+  if (title.split(' → ').length > 1) {
+    return title.split(' → ')[1]
+  }
+  return title.split(' → ')[0]
+}
+
 export const folderConcat = (node) => {
   const isFileOrEmpty = (node.list === undefined || node.list.length === 0 || (node.href !== null && node.href !== undefined))
   if (isFileOrEmpty) {
@@ -95,7 +102,7 @@ export const folderConcat = (node) => {
 export const createFileTree = (filter = EMPTY_FILTER) => {
   const fileInfo = [...document.querySelectorAll('.file-info > a')]
   const files = fileInfo.map(({ title, href }) => {
-    title = title.split(' → ')[0]
+    title = getCurrentFileLocation(title)
     return { title, href, parts: title.split('/') }
   })
   const tree = {
