@@ -5,7 +5,7 @@ import Tree from './components/tree'
 import { createFileTree, createRootElement } from './lib'
 import './style.css'
 
-const { document, MutationObserver, parseInt } = window
+const { document, MutationObserver, parseInt = Number.parseInt } = window
 
 let observer
 const observe = () => {

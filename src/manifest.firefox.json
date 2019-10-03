@@ -1,0 +1,43 @@
+{
+  "name": "Better Pull Request for GitHub",
+  "short_name": "Better PRs",
+  "permissions": [
+    "contextMenus",
+    "storage",
+    "*://*.github.com/*"
+  ],
+  "optional_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.github.com/*"
+      ],
+      "run_at": "document_idle",
+      "js": [
+        "better_github_prs.js"
+      ],
+      "css": []
+    }
+  ],
+  "options_ui": {
+    "page": "options.html"
+  },
+  "web_accessible_resources": ["options.html"],
+  "icons": {
+    "16": "16x16.png",
+    "48": "48x48.png",
+    "128": "128x128.png"
+  },
+  "manifest_version": 2,
+  "version": "1.0.0",
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}
