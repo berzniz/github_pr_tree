@@ -185,3 +185,8 @@ export const StorageSync = {
     })
   }
 }
+
+export const isFileViewed = diffElement => {
+  const checkbox = diffElement.querySelector('.js-reviewed-checkbox')
+  return checkbox && checkbox.checked
+}
