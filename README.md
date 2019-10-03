@@ -6,7 +6,7 @@ Chrome browser extension to show a file tree on GitHub's Pull Request pages.
 - Private repositories support out of the box
 - GitHub Enterprise support
 - Dark mode
-- Other goodies: resizable tree, diff stats, expand to full width and more
+- Other goodies: track viewed files, resizable tree, expand to full width and more
 
 ![GitHub Pull Request](assets/screenshot.png "GitHub Pull Request")
 
