@@ -192,6 +192,7 @@
     padding-top: 2px;
     padding-bottom: 2px;
     background: transparent;
+    font-weight: 500;
 }
 
 .github-pr-file.github-pr-file-highlight {
@@ -200,6 +201,10 @@
 
 .github-pr-file.github-pr-file-deleted {
     text-decoration: line-through;
+}
+
+.github-pr-file.github-pr-file-viewed {
+    font-weight: normal;
 }
 
 .github-pr-file > span {
