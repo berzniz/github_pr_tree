@@ -125,6 +125,10 @@
     transition: width .2s ease;
 }
 
+.enable_better_github_pr .application-main .container-lg {
+    max-width: 1340px;
+}
+
 /* react-treeview */
 
 .tree-view_item {
