@@ -1,6 +1,6 @@
 const fileSystem = require('fs')
 const path = require('path')
-const manifest = require('../src/manifest.json')
+const manifest = require(`../src/manifest.${process.env.TARGET}.json`)
 
 // generates the manifest file using the package.json informations
 manifest.description = process.env.npm_package_description

@@ -163,6 +163,8 @@ export const isElementVisible = (el) => {
 
 const EMPTY_FILTER = ''
 
+const isFirefox = process.env.TARGET === 'firefox'
+
 export const StorageSync = {
   save () {
     return new Promise(resolve => {
@@ -172,7 +174,11 @@ export const StorageSync = {
         diffStats,
         darkMode
       }
-      window.chrome.storage.sync.set(options, resolve)
+      if (!isFirefox) {
+        window.chrome.storage.sync.set(options, resolve)
+      } else {
+        window.browser.storage.sync.set(options).then(resolve)
+      }
     })
   },
   get () {
@@ -181,7 +187,11 @@ export const StorageSync = {
         diffStats: false,
         darkMode: false
       }
-      window.chrome.storage.sync.get(defaults, resolve)
+      if (!isFirefox) {
+        window.chrome.storage.sync.get(defaults, resolve)
+      } else {
+        window.browser.storage.sync.get(defaults).then(resolve)
+      }
     })
   }
 }

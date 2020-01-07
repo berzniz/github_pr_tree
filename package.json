@@ -4,8 +4,10 @@
   "description": "Add a file tree to GitHub Pull Requests",
   "scripts": {
     "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
-    "build": "node utils/build.js",
-    "start": "cross-env NODE_ENV=development node utils/start.js",
+    "build": "yarn run build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "cross-env NODE_ENV=development yarn run build-chrome",
     "standard": "standard",
     "test": "jest --watch",
     "test-ci": "jest"
