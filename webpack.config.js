@@ -3,6 +3,7 @@ const path = require('path')
 const WriteFilePlugin = require('write-file-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { NODE_ENV, TARGET } = require('./utils/env')
 
 const copyWebpackPlugins = [
   { from: './src/icons' },
@@ -10,14 +11,14 @@ const copyWebpackPlugins = [
 ]
 
 module.exports = {
-  mode: process.env.NODE_ENV || 'development',
+  mode: NODE_ENV,
   entry: {
     better_github_prs: path.join(__dirname, 'src', 'js', 'index.jsx'),
     background: path.join(__dirname, 'src', 'js', 'background.js'),
     options: path.join(__dirname, 'src', 'js', 'options.jsx')
   },
   output: {
-    path: path.join(__dirname, 'build'),
+    path: path.join(__dirname, 'build', TARGET, NODE_ENV),
     filename: '[name].js'
   },
   module: {
@@ -40,6 +41,10 @@ module.exports = {
   },
   plugins: [
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(NODE_ENV),
+      'process.env.TARGET': JSON.stringify(TARGET)
+    }),
     new CopyWebpackPlugin(copyWebpackPlugins),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'src', 'pages', 'options.html'),

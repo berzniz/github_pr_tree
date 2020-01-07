@@ -172,7 +172,12 @@ export const StorageSync = {
         diffStats,
         darkMode
       }
-      window.chrome.storage.sync.set(options, resolve)
+
+      if (window.chrome) {
+        window.chrome.storage.sync.set(options, resolve)
+      } else {
+        browser.storage.sync.set(options).then(resolve)
+      }
     })
   },
   get () {
@@ -181,7 +186,11 @@ export const StorageSync = {
         diffStats: false,
         darkMode: false
       }
-      window.chrome.storage.sync.get(defaults, resolve)
+      if (window.chrome) {
+        window.chrome.storage.sync.get(defaults, resolve)
+      } else {
+        browser.storage.sync.get(defaults).then(resolve)
+      }
     })
   }
 }
