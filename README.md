@@ -1,6 +1,6 @@
 # Better Pull Requests for GitHub
 
-Chrome browser extension to show a file tree on GitHub's Pull Request pages.
+Chrome and Firefox browser extension to show a file tree on GitHub's Pull Request pages.
 
 - Browse pull requests with an IDE like file tree
 - Private repositories support out of the box
@@ -12,7 +12,9 @@ Chrome browser extension to show a file tree on GitHub's Pull Request pages.
 
 ## Install
 
-Install from the Chrome web store: [Better Pull Requests for GitHub](https://chrome.google.com/webstore/detail/nfhdjopbhlggibjlimhdbogflgmbiahc)
+Install from the Chrome web store: [Better Pull Requests for GitHub for Chrome](https://chrome.google.com/webstore/detail/nfhdjopbhlggibjlimhdbogflgmbiahc)
+
+Install from the Firefox Browser Add Ons: [Better Pull Requests for GitHub for Firefox](https://addons.mozilla.org/en-US/firefox/addon/better-pull-request-for-github/)
 
 ## GitHub Enterprise support
 
@@ -36,7 +38,7 @@ To enable the extension on your organization's domain:
     $ yarn start
     ```
 
-3. Load the unpackaged `build` folder on Chrome's "Manage Extensions" tab   
+3. Load the unpackaged `build/chrome/development` folder on Chrome's "Manage Extensions" tab   
 
 4. Make changes
 
