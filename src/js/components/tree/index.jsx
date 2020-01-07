@@ -127,10 +127,11 @@ class Tree extends React.Component {
   }
 
   onOptions () {
-    if (window.chrome.runtime.openOptionsPage) {
-      window.chrome.runtime.openOptionsPage()
+    const { runtime } = (window.chrome || browser)
+    if (runtime.openOptionsPage) {
+      runtime.openOptionsPage()
     } else {
-      window.open(window.chrome.runtime.getURL('options.html'))
+      window.open(runtime.getURL('options.html'))
     }
   }
 

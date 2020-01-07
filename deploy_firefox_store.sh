@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 ENV=production
-OUTPUT_TARGET=chrome
+OUTPUT_TARGET=firefox
 OUTPUT_FOLDER=./build/$OUTPUT_TARGET/$ENV
 OUTPUT_FILE=$OUTPUT_TARGET.zip
 
