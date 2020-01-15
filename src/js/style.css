@@ -186,7 +186,7 @@
     padding-top: 2px;
     padding-bottom: 2px;
     background: transparent;
-    font-weight: 500;
+    font-weight: normal;
 }
 
 .github-pr-file.github-pr-file-highlight {
@@ -195,10 +195,6 @@
 
 .github-pr-file.github-pr-file-deleted {
     text-decoration: line-through;
-}
-
-.github-pr-file.github-pr-file-viewed {
-    font-weight: normal;
 }
 
 .github-pr-file > span {
@@ -235,6 +231,11 @@
     margin-left: 3px;
     position: relative;
     top: 2px;
+}
+
+.github-pr-file-checkmark {
+    color: #2cbe4e;
+    margin-left: 5px;
 }
 
 /* Dark mode */
