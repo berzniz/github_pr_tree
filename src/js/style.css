@@ -237,6 +237,11 @@
     top: 2px;
 }
 
+.github-pr-file-checkmark {
+  font-size: 10px;
+  padding-left: 5px;
+}
+
 /* Dark mode */
 
 .__better_github_pr_dark_mode .__better_github_pr {
