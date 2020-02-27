@@ -42,8 +42,8 @@ const getDiffStatsForDiffElement = (diffElement) => {
   }
 }
 
-const hasCommentsForFileIndex = (fileIndex) => {
-  const diffTable = document.getElementById(`diff-${fileIndex}`)
+const hasCommentsForFileId = (fileId) => {
+  const diffTable = document.getElementById(fileId)
   if (!diffTable) {
     return 0
   }
@@ -51,8 +51,8 @@ const hasCommentsForFileIndex = (fileIndex) => {
   return diffTable.querySelectorAll('.inline-comments').length
 }
 
-const isDeletedForFileIndex = (fileIndex) => {
-  const diffTable = document.getElementById(`diff-${fileIndex}`)
+const isDeletedForFileId = (fileId) => {
+  const diffTable = document.getElementById(fileId)
   if (!diffTable) {
     return false
   }
@@ -111,15 +111,17 @@ export const createFileTree = (filter = EMPTY_FILTER) => {
     diffElements: []
   }
 
-  files.forEach(({ parts, href }, fileIndex) => {
+  files.forEach(({ parts, href }) => {
     let location = tree
     if (filterItem(parts[parts.length - 1], filter)) {
       parts.forEach((part, index) => {
         let node = location.list.find(node => node.nodeLabel === part)
         if (!node) {
-          const hasComments = (hasCommentsForFileIndex(fileIndex) > 0)
-          const isDeleted = isDeletedForFileIndex(fileIndex)
-          const diffElement = document.getElementById(`diff-${fileIndex}`)
+          const hrefSplit = href.split('#')
+          const fileId = hrefSplit[hrefSplit.length - 1]
+          const hasComments = (hasCommentsForFileId(fileId) > 0)
+          const isDeleted = isDeletedForFileId(fileId)
+          const diffElement = document.getElementById(fileId)
           tree.diffElements.push(diffElement)
           node = {
             nodeLabel: part,
