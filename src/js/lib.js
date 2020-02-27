@@ -42,7 +42,7 @@ const getDiffStatsForDiffElement = (diffElement) => {
   }
 }
 
-const hasCommentsForFileId = (fileId) => {
+const countCommentsForFileId = (fileId) => {
   const diffTable = document.getElementById(fileId)
   if (!diffTable) {
     return 0
@@ -119,7 +119,7 @@ export const createFileTree = (filter = EMPTY_FILTER) => {
         if (!node) {
           const hrefSplit = href.split('#')
           const fileId = hrefSplit[hrefSplit.length - 1]
-          const hasComments = (hasCommentsForFileId(fileId) > 0)
+          const hasComments = (countCommentsForFileId(fileId) > 0)
           const isDeleted = isDeletedForFileId(fileId)
           const diffElement = document.getElementById(fileId)
           tree.diffElements.push(diffElement)
