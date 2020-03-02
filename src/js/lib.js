@@ -43,7 +43,7 @@ const getDiffStatsForDiffElement = (diffElement) => {
 }
 
 const countCommentsForFileId = (fileId) => {
-  const diffTable = document.getElementById(fileId)
+  const diffTable = document.querySelector(`[data-anchor="${fileId}"]`).parentElement
   if (!diffTable) {
     return 0
   }
@@ -52,7 +52,7 @@ const countCommentsForFileId = (fileId) => {
 }
 
 const isDeletedForFileId = (fileId) => {
-  const diffTable = document.getElementById(fileId)
+  const diffTable = document.querySelector(`[data-anchor="${fileId}"]`).parentElement
   if (!diffTable) {
     return false
   }
@@ -121,7 +121,7 @@ export const createFileTree = (filter = EMPTY_FILTER) => {
           const fileId = hrefSplit[hrefSplit.length - 1]
           const hasComments = (countCommentsForFileId(fileId) > 0)
           const isDeleted = isDeletedForFileId(fileId)
-          const diffElement = document.getElementById(fileId)
+          const diffElement = document.querySelector(`[data-anchor="${fileId}"]`)
           tree.diffElements.push(diffElement)
           node = {
             nodeLabel: part,
