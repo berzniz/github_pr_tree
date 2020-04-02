@@ -4,7 +4,8 @@ body {
 
 .container {
     margin-top: 50px;
-    width: 500px;
+    padding: 0 30px 20px 30px;
+    width: 550px;
 }
 
 .text-center {
