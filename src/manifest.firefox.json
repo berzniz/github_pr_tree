@@ -4,7 +4,7 @@
   "permissions": [
     "contextMenus",
     "storage",
-		"activeTab",
+    "activeTab",
     "*://*.github.com/*"
   ],
   "optional_permissions": [
