@@ -8265,12 +8265,14 @@ webext-additional-permissions@^0.1.0:
   dependencies:
     "@types/chrome" "0.0.86"
 
-webext-domain-permission-toggle@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/webext-domain-permission-toggle/-/webext-domain-permission-toggle-0.1.0.tgz#82c0f611a075958e5b879fd77f69908236615607"
-  integrity sha512-zPwVKYa5EiH0htXedmoAWUaMqU7pOr+4dlzFyGVM64Q0jLVo3V8AVcYOVDKtY+c9qOkhtoSUCGcXCnbs5u8eNg==
+webext-domain-permission-toggle@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/webext-domain-permission-toggle/-/webext-domain-permission-toggle-1.0.0.tgz#6f9a6d3234ffe596921d1be5ae8823ef5b02ebd2"
+  integrity sha512-K6RAOYtVCMAmqjQPopMbGOIoxpFU05ERGgaLkUNvFCdpPsXLB5y4m1+Cq1dezyfx6FU0lLEqxoL/5/49+EY5zA==
+  dependencies:
+    webext-additional-permissions "^0.1.0"
 
-webext-dynamic-content-scripts@^6.0.3:
+webext-dynamic-content-scripts@6.0.3:
   version "6.0.3"
   resolved "https://registry.yarnpkg.com/webext-dynamic-content-scripts/-/webext-dynamic-content-scripts-6.0.3.tgz#729a5cf4408dca589af889cb403943ab414c2ecd"
   integrity sha512-MIH4UOnkUl4hapl83uMQT5t2bbYXTPO/mxhFFBcesm2mGvnG3OrNKNiaPRFL6AdcPvqDVae8UcWcWHSflptLTQ==

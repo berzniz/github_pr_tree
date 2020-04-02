@@ -4,6 +4,7 @@
   "permissions": [
     "contextMenus",
     "storage",
+		"activeTab",
     "*://*.github.com/*"
   ],
   "optional_permissions": [
@@ -13,8 +14,7 @@
   "background": {
     "scripts": [
       "background.js"
-    ],
-    "persistent": false
+    ]
   },
   "content_scripts": [
     {
@@ -28,7 +28,16 @@
       "css": []
     }
   ],
+  "browser_action": {
+    "default_icon": {
+      "16": "16x16.png",
+      "48": "48x48.png",
+      "128": "128x128.png"
+    },
+    "default_popup": "options.html"
+  },
   "options_ui": {
+		"chrome_style": true,
     "page": "options.html"
   },
   "web_accessible_resources": ["options.html"],
