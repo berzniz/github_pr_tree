@@ -5,6 +5,7 @@
       {
         "modules": "auto",
         "useBuiltIns": "usage",
+        "corejs": 2,
         "debug": false
       }
     ],
