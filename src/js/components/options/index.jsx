@@ -21,8 +21,8 @@ class Options extends React.Component {
     this.setState(await StorageSync.get())
   }
 
-  isChrome() {
-    return typeof browser === "undefined"
+  isChrome () {
+    return typeof browser === 'undefined'
   }
 
   render () {
@@ -32,11 +32,11 @@ class Options extends React.Component {
         <div className='text-center'>
           <h1>Better Pull Request</h1>
           <p>
-            Thanks for using Better Pull Request {this.isChrome() ? "Chrome" : "Firefox"} Extension! 🎉
+            Thanks for using Better Pull Request {this.isChrome() ? 'Chrome' : 'Firefox'} Extension! 🎉
           </p>
           <p>
-            If you're enjoying this extension, please <a href={this.isChrome() ? chromeStoreUrl : firefoxStoreUrl} target="_blank">rate it
-            on the {this.isChrome() ? "Chrome" : "Firefox"} Store</a>.
+            If you're enjoying this extension, please <a href={this.isChrome() ? chromeStoreUrl : firefoxStoreUrl} target='_blank'>rate it
+            on the {this.isChrome() ? 'Chrome' : 'Firefox'} Store</a>.
           </p>
         </div>
         <div>

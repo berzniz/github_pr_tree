@@ -37,7 +37,7 @@
     "default_popup": "options.html"
   },
   "options_ui": {
-		"chrome_style": true,
+    "chrome_style": true,
     "page": "options.html"
   },
   "web_accessible_resources": ["options.html"],

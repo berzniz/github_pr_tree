@@ -128,7 +128,7 @@ class Tree extends React.Component {
 
   onOptions () {
     let browserApi = window.chrome
-    if (typeof browser !== "undefined") {
+    if (typeof browser !== 'undefined') {
       browserApi = browser
     }
     window.open(browserApi.runtime.getURL('options.html'))
