@@ -2,7 +2,8 @@ import React from 'react'
 import { StorageSync } from '../../lib'
 import BodyColor from '../bodyColor'
 
-const url = 'https://chrome.google.com/webstore/detail/github-pull-request-tree/nfhdjopbhlggibjlimhdbogflgmbiahc'
+const chromeStoreUrl = 'https://chrome.google.com/webstore/detail/github-pull-request-tree/nfhdjopbhlggibjlimhdbogflgmbiahc'
+const firefoxStoreUrl = 'https://addons.mozilla.org/en-US/firefox/addon/better-pull-request-for-github/'
 
 class Options extends React.Component {
   constructor (props) {
@@ -20,6 +21,10 @@ class Options extends React.Component {
     this.setState(await StorageSync.get())
   }
 
+  isChrome() {
+    return typeof browser === "undefined"
+  }
+
   render () {
     return (
       <div className='container'>
@@ -27,10 +32,11 @@ class Options extends React.Component {
         <div className='text-center'>
           <h1>Better Pull Request</h1>
           <p>
-            Thanks for using Better Pull Request Chrome Extension! 🎉
+            Thanks for using Better Pull Request {this.isChrome() ? "Chrome" : "Firefox"} Extension! 🎉
           </p>
           <p>
-            If you're enjoying this extension, please <a href={url}>rate it on the Chrome Store</a>.
+            If you're enjoying this extension, please <a href={this.isChrome() ? chromeStoreUrl : firefoxStoreUrl} target="_blank">rate it
+            on the {this.isChrome() ? "Chrome" : "Firefox"} Store</a>.
           </p>
         </div>
         <div>
