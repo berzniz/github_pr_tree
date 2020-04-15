@@ -48,5 +48,5 @@
   },
   "manifest_version": 2,
   "version": "1.0.0",
-  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'; font-src 'self' https://fonts.gstatic.com; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com;"
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self';"
 }

@@ -1,5 +1,5 @@
-@import '../../node_modules/react-treeview/react-treeview.css';
-@import '../../node_modules/file-icons-js/css/style.css';
+@import '~react-treeview/react-treeview.css';
+@import '~file-icons-js/css/style.css';
 
 /* Extension specific */
 

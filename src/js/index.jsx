@@ -2,6 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import Tree from './components/tree'
 import { createFileTree, createRootElement, getBrowserApi } from './lib'
+
 import './style.css'
 
 const { document, MutationObserver, parseInt = Number.parseInt } = window
@@ -77,14 +78,14 @@ const loadFonts = () => {
         style: 'normal',
         weight: 'normal'
       }))
-    .forEach(fontFace => fontFace.load().then(loadedFont => document.fonts.add(loadedFont)))
+    .forEach(async fontFace => await fontFace.load().then(loadedFont => document.fonts.add(loadedFont)))
 }
 
 const start = () => {
-  loadFonts()
   observe()
   renderTree()
 }
 
+loadFonts()
 observe()
 start()
