@@ -63,7 +63,25 @@ const renderTree = () => {
   render(<Top />, rootElement)
 }
 
+const loadFonts = () => {
+  [
+    { name: 'FontAwesome', fileName: 'fontawesome.woff2' },
+    { name: 'Mfizz', fileName: 'mfixx.woff2' },
+    { name: 'Devicons', fileName: 'devopicons.woff2' },
+    { name: 'file-icons', fileName: 'file-icons.woff2' },
+    { name: 'octicons', fileName: 'octicons.woff2' },
+  ]
+    .map(({ name, fileName }) => new FontFace(name,
+      `url("${browser.runtime.getURL(`fonts/${fileName}`)}") format("woff2")`,
+      {
+        style: 'normal',
+        weight: 'normal'
+      }))
+    .forEach(fontFace => fontFace.load().then(loadedFont => document.fonts.add(loadedFont)))
+}
+
 const start = () => {
+  loadFonts()
   observe()
   renderTree()
 }

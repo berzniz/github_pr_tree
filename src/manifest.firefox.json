@@ -40,7 +40,7 @@
     "chrome_style": true,
     "page": "options.html"
   },
-  "web_accessible_resources": ["options.html"],
+  "web_accessible_resources": ["options.html", "*.woff2"],
   "icons": {
     "16": "16x16.png",
     "48": "48x48.png",
@@ -48,5 +48,5 @@
   },
   "manifest_version": 2,
   "version": "1.0.0",
-  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'; font-src 'self' https://fonts.gstatic.com; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com;"
 }
