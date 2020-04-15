@@ -1,7 +1,7 @@
 import React from 'react'
 import Actions from '../actions'
 import Branch from '../branch'
-import { createFileTree, isElementVisible, StorageSync } from '../../lib'
+import { createFileTree, isElementVisible, StorageSync, getBrowserApi } from '../../lib'
 import BodyColor from '../bodyColor'
 
 const MIN_RESIZE_WIDTH = 55
@@ -127,11 +127,7 @@ class Tree extends React.Component {
   }
 
   onOptions () {
-    let browserApi = window.chrome
-    if (typeof browser !== 'undefined') {
-      browserApi = browser
-    }
-    window.open(browserApi.runtime.getURL('options.html'))
+    window.open(getBrowserApi().runtime.getURL('options.html'))
   }
 
   onClose () {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import Tree from './components/tree'
-import { createFileTree, createRootElement } from './lib'
+import { createFileTree, createRootElement, getBrowserApi } from './lib'
 import './style.css'
 
 const { document, MutationObserver, parseInt = Number.parseInt } = window
@@ -72,7 +72,7 @@ const loadFonts = () => {
     { name: 'octicons', fileName: 'octicons.woff2' },
   ]
     .map(({ name, fileName }) => new FontFace(name,
-      `url("${browser.runtime.getURL(`fonts/${fileName}`)}") format("woff2")`,
+      `url("${getBrowserApi().runtime.getURL(`fonts/${fileName}`)}") format("woff2")`,
       {
         style: 'normal',
         weight: 'normal'

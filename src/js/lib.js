@@ -175,6 +175,14 @@ export const isElementVisible = (el) => {
 
 const EMPTY_FILTER = ''
 
+export const getBrowserApi = () => {
+  let browserApi = window.chrome
+    if (typeof browser !== 'undefined') {
+      browserApi = browser
+    }
+  return browserApi
+}
+
 export const StorageSync = {
   save () {
     return new Promise(resolve => {
