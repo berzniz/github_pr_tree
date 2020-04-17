@@ -5,6 +5,8 @@ import { createFileTree, createRootElement, getBrowserApi } from './lib'
 
 import './style.css'
 
+__webpack_public_path__ = getBrowserApi().runtime.getURL('')
+
 const { document, MutationObserver, parseInt = Number.parseInt } = window
 
 let observer
