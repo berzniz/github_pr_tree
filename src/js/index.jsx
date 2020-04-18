@@ -5,7 +5,7 @@ import { createFileTree, createRootElement, getBrowserApi } from './lib'
 
 import './style.css'
 
-const { document, MutationObserver, parseInt = Number.parseInt } = window
+const { document, MutationObserver, FontFace, parseInt = Number.parseInt } = window
 
 let observer
 const observe = () => {
@@ -65,20 +65,24 @@ const renderTree = () => {
 }
 
 const loadFonts = () => {
-  [
+  const fonts = [
     { name: 'FontAwesome', fileName: 'fontawesome.woff2' },
     { name: 'Mfizz', fileName: 'mfixx.woff2' },
     { name: 'Devicons', fileName: 'devopicons.woff2' },
     { name: 'file-icons', fileName: 'file-icons.woff2' },
-    { name: 'octicons', fileName: 'octicons.woff2' },
+    { name: 'octicons', fileName: 'octicons.woff2' }
   ]
-    .map(({ name, fileName }) => new FontFace(name,
+
+  fonts
+    .map(({ name, fileName }) => new FontFace(
+      name,
       `url("${getBrowserApi().runtime.getURL(`fonts/${fileName}`)}") format("woff2")`,
-      {
-        style: 'normal',
-        weight: 'normal'
-      }))
-    .forEach(async fontFace => await fontFace.load().then(loadedFont => document.fonts.add(loadedFont)))
+      { style: 'normal', weight: 'normal' }
+    ))
+    .forEach(async fontFace => {
+      const loadedFont = await fontFace.load()
+      document.fonts.add(loadedFont)
+    })
 }
 
 const start = () => {
