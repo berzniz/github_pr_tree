@@ -1,7 +1,8 @@
 import React from 'react'
 import { render } from 'react-dom'
 import Tree from './components/tree'
-import { createFileTree, createRootElement } from './lib'
+import { createFileTree, createRootElement, getBrowserApi } from './lib'
+
 import './style.css'
 
 const { document, MutationObserver, parseInt = Number.parseInt } = window
@@ -63,10 +64,28 @@ const renderTree = () => {
   render(<Top />, rootElement)
 }
 
+const loadFonts = () => {
+  [
+    { name: 'FontAwesome', fileName: 'fontawesome.woff2' },
+    { name: 'Mfizz', fileName: 'mfixx.woff2' },
+    { name: 'Devicons', fileName: 'devopicons.woff2' },
+    { name: 'file-icons', fileName: 'file-icons.woff2' },
+    { name: 'octicons', fileName: 'octicons.woff2' },
+  ]
+    .map(({ name, fileName }) => new FontFace(name,
+      `url("${getBrowserApi().runtime.getURL(`fonts/${fileName}`)}") format("woff2")`,
+      {
+        style: 'normal',
+        weight: 'normal'
+      }))
+    .forEach(async fontFace => await fontFace.load().then(loadedFont => document.fonts.add(loadedFont)))
+}
+
 const start = () => {
   observe()
   renderTree()
 }
 
+loadFonts()
 observe()
 start()
