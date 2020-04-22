@@ -19,7 +19,8 @@ class Top extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      tree: null
+      tree: null,
+      reloadTries: 10
     }
   }
 
@@ -40,11 +41,17 @@ class Top extends React.Component {
     this.setState({ tree })
 
     if (isFilteredToCommit) {
+      //When using the filter, the "Files changed" label on github still shows the total files changed
+      //so we just try to reload the tree a few times to make sure every file gets loaded
+      if(this.state.reloadTries > 0) {
+        this.setState({reloadTries: this.state.reloadTries-1})
+        setTimeout(this.calculateTree.bind(this), 2000)
+      }
       return
     }
 
     if (fileCount !== count) {
-      setTimeout(this.calculateTree.bind(this), 100)
+      setTimeout(this.calculateTree.bind(this), 1000)
     }
   }
 
