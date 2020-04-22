@@ -27,6 +27,11 @@ class Top extends React.Component {
     this.calculateTree()
   }
 
+  loadTree() {
+    const { tree } = createFileTree()
+    this.setState({ tree })
+  }
+
   calculateTree () {
     const isFilteredToCommit = Boolean(document.querySelector('.js-commits-filtered'))
     const fileCount = parseInt((document.getElementById('files_tab_counter') || { innerText: 0 }).innerText, 10)
@@ -48,7 +53,7 @@ class Top extends React.Component {
     if (!tree) {
       return null
     }
-    return <Tree root={tree} />
+    return <Tree root={tree} reloadTree={this.loadTree.bind(this)}/>
   }
 }
 

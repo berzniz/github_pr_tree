@@ -275,7 +275,8 @@
 
 .__better_github_pr_dark_mode .__better_github_pr .settings-button,
 .__better_github_pr_dark_mode .__better_github_pr .close-button,
-.__better_github_pr_dark_mode .__better_github_pr .full-width-button {
+.__better_github_pr_dark_mode .__better_github_pr .full-width-button,
+.__better_github_pr_dark_mode .__better_github_pr .reload-tree-button {
     color: #ffffff;
 }
 
