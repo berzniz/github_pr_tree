@@ -134,23 +134,21 @@ export const createFileTree = (filter = EMPTY_FILTER) => {
           const hrefSplit = href.split('#')
           const fileId = hrefSplit[hrefSplit.length - 1]
           const diffElement = getDiffElement(fileId)
-          if (!diffElement) {
-            return
+          if (diffElement) {
+            const hasComments = (countCommentsForFileId(fileId) > 0)
+            const isDeleted = isDeletedForFileId(fileId)
+            tree.diffElements.push(diffElement)
+            node = {
+              nodeLabel: part,
+              list: [],
+              href: (index === parts.length - 1) ? href : null,
+              hasComments,
+              isDeleted,
+              diffElement,
+              diffStats: getDiffStatsForDiffElement(diffElement)
+            }
+            location.list.push(node)
           }
-
-          const hasComments = (countCommentsForFileId(fileId) > 0)
-          const isDeleted = isDeletedForFileId(fileId)
-          tree.diffElements.push(diffElement)
-          node = {
-            nodeLabel: part,
-            list: [],
-            href: (index === parts.length - 1) ? href : null,
-            hasComments,
-            isDeleted,
-            diffElement,
-            diffStats: getDiffStatsForDiffElement(diffElement)
-          }
-          location.list.push(node)
         }
         location.list = location.list.sort(sorter)
         location = node
