@@ -119,6 +119,7 @@ export const createFileTree = (filter = EMPTY_FILTER) => {
     title = getCurrentFileLocation(title)
     return { title, href, parts: title.split('/') }
   })
+  const count = fileInfo.filter(({ href }) => href.includes('#diff')).length
   const tree = {
     nodeLabel: '/',
     list: [],
@@ -157,7 +158,7 @@ export const createFileTree = (filter = EMPTY_FILTER) => {
   })
   return {
     tree: folderConcat(tree),
-    count: fileInfo.length
+    count
   }
 }
 
