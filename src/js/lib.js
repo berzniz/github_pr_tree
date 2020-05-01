@@ -76,7 +76,7 @@ const filterItem = (item, filter) => {
     return true
   }
 
-  return item && item.toLowerCase().indexOf(filter) > -1
+  return item && item.toLowerCase().indexOf(filter.toLowerCase()) > -1
 }
 
 const getCurrentFileLocation = (title) => {
