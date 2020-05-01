@@ -48,8 +48,12 @@ const getDiffElement = (fileId) => {
     return el
   }
 
-  const gitHubEnterpriseEl = document.querySelector(`[data-anchor="${fileId}"]`).parentElement
-  return gitHubEnterpriseEl
+  const gitHubEnterpriseEl = document.querySelector(`[data-anchor="${fileId}"]`)
+  if (gitHubEnterpriseEl) {
+    return gitHubEnterpriseEl.parentElement
+  }
+
+  return null
 }
 
 const countCommentsForFileId = (fileId) => {
@@ -129,9 +133,13 @@ export const createFileTree = (filter = EMPTY_FILTER) => {
         if (!node) {
           const hrefSplit = href.split('#')
           const fileId = hrefSplit[hrefSplit.length - 1]
+          const diffElement = getDiffElement(fileId)
+          if (!diffElement) {
+            return
+          }
+
           const hasComments = (countCommentsForFileId(fileId) > 0)
           const isDeleted = isDeletedForFileId(fileId)
-          const diffElement = getDiffElement(fileId)
           tree.diffElements.push(diffElement)
           node = {
             nodeLabel: part,
@@ -177,9 +185,9 @@ const EMPTY_FILTER = ''
 
 export const getBrowserApi = () => {
   let browserApi = window.chrome
-    if (typeof browser !== 'undefined') {
-      browserApi = browser
-    }
+  if (typeof browser !== 'undefined') {
+    browserApi = browser
+  }
   return browserApi
 }
 
