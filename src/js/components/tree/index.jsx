@@ -10,6 +10,7 @@ const MAX_RESIZE_WIDTH = 700
 const widthLocalStorageKey = '__better_github_pr_tree_width'
 const fullScreenStorageKey = '__better_github_pr_full_screen'
 
+const appendIconClassName = '__toggle_comments_append'
 class Tree extends React.Component {
   constructor (props) {
     super(props)
@@ -22,6 +23,7 @@ class Tree extends React.Component {
     this.onFullWidth = this.onFullWidth.bind(this)
     this.filterFiles = this.filterFiles.bind(this)
     this.onClick = this.onClick.bind(this)
+    this.onToggleComments = this.onToggleComments.bind(this)
 
     this.isResizing = false
     this.resizeDelta = 0
@@ -137,6 +139,30 @@ class Tree extends React.Component {
     this.setWidth(0, false)
   }
 
+  onToggleComments () {
+    document.querySelectorAll('.js-toggle-file-notes').forEach((el) => {
+      el.click()
+    })
+
+    document.querySelectorAll('.js-diff-progressive-container .inline-comments').forEach((el) => {
+      // last TD in previouse line
+      const td = el.previousElementSibling.lastElementChild
+      const lastEl = td.lastElementChild
+      if (lastEl.classList.contains(appendIconClassName)) {
+        // already appended, remove
+        lastEl.remove()
+      } else {
+        const span = document.createElement('span')
+        span.className = appendIconClassName
+        const svg = '<svg className="octicon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">' +
+          '<path fillRule="evenodd" fill="red" d="M14 1H2c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1h2v3.5L7.5 11H14c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1zm0 9H7l-2" />' +
+          '</svg>'
+        span.innerHTML = svg
+        td.append(span)
+      }
+    })
+  }
+
   onFullWidth () {
     const fullScreenState = document.querySelector('body').classList.toggle('full-width')
     window.localStorage.setItem(fullScreenStorageKey, fullScreenState)
@@ -189,6 +215,7 @@ class Tree extends React.Component {
           onFullWidth={this.onFullWidth}
           onOptions={this.onOptions}
           onClose={this.onClose}
+          onToggleComments={this.onToggleComments}
         />
         <div className='file-container'>
           <div>

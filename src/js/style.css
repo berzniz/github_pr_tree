@@ -283,3 +283,8 @@
     background: #e4af3c;
     color: #333333;
 }
+.__toggle_comments_append {
+    left: 1px;
+    position: relative;
+    top: -5px;
+}
