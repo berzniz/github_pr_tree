@@ -17,3 +17,6 @@ build
 
 # Storybook
 storybook-static
+
+# xcode
+xcuserdata

@@ -1,0 +1,534 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D5C80D6824E6F12200F892AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C80D6724E6F12200F892AA /* AppDelegate.swift */; };
+		D5C80D6B24E6F12200F892AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5C80D6924E6F12200F892AA /* Main.storyboard */; };
+		D5C80D6D24E6F12200F892AA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C80D6C24E6F12200F892AA /* ViewController.swift */; };
+		D5C80D6F24E6F12400F892AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5C80D6E24E6F12400F892AA /* Assets.xcassets */; };
+		D5C80D7624E6F12400F892AA /* Better Pull Request for GitHub Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D5C80D7524E6F12400F892AA /* Better Pull Request for GitHub Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D5C80D7B24E6F12400F892AA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5C80D7A24E6F12400F892AA /* Cocoa.framework */; };
+		D5C80D7E24E6F12400F892AA /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C80D7D24E6F12400F892AA /* SafariWebExtensionHandler.swift */; };
+		D5C80D9424E6F12500F892AA /* 16x16.png in Resources */ = {isa = PBXBuildFile; fileRef = D5C80D8B24E6F12500F892AA /* 16x16.png */; };
+		D5C80D9524E6F12500F892AA /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = D5C80D8C24E6F12500F892AA /* background.js */; };
+		D5C80D9624E6F12500F892AA /* options.js in Resources */ = {isa = PBXBuildFile; fileRef = D5C80D8D24E6F12500F892AA /* options.js */; };
+		D5C80D9724E6F12500F892AA /* 128x128.png in Resources */ = {isa = PBXBuildFile; fileRef = D5C80D8E24E6F12500F892AA /* 128x128.png */; };
+		D5C80D9824E6F12500F892AA /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = D5C80D8F24E6F12500F892AA /* manifest.json */; };
+		D5C80D9924E6F12500F892AA /* 48x48.png in Resources */ = {isa = PBXBuildFile; fileRef = D5C80D9024E6F12500F892AA /* 48x48.png */; };
+		D5C80D9A24E6F12500F892AA /* options.html in Resources */ = {isa = PBXBuildFile; fileRef = D5C80D9124E6F12500F892AA /* options.html */; };
+		D5C80D9B24E6F12500F892AA /* options.css in Resources */ = {isa = PBXBuildFile; fileRef = D5C80D9224E6F12500F892AA /* options.css */; };
+		D5C80D9C24E6F12500F892AA /* better_github_prs.js in Resources */ = {isa = PBXBuildFile; fileRef = D5C80D9324E6F12500F892AA /* better_github_prs.js */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D5C80D7724E6F12400F892AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5C80D5B24E6F12200F892AA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D5C80D7424E6F12400F892AA;
+			remoteInfo = "Better Pull Request for GitHub Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D5C80D8624E6F12400F892AA /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D5C80D7624E6F12400F892AA /* Better Pull Request for GitHub Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		D5C80D6324E6F12200F892AA /* Better Pull Request for GitHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Better Pull Request for GitHub.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5C80D6624E6F12200F892AA /* Better_Pull_Request_for_GitHub.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Better_Pull_Request_for_GitHub.entitlements; sourceTree = "<group>"; };
+		D5C80D6724E6F12200F892AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D5C80D6A24E6F12200F892AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D5C80D6C24E6F12200F892AA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D5C80D6E24E6F12400F892AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D5C80D7024E6F12400F892AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5C80D7524E6F12400F892AA /* Better Pull Request for GitHub Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Better Pull Request for GitHub Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5C80D7A24E6F12400F892AA /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		D5C80D7D24E6F12400F892AA /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		D5C80D7F24E6F12400F892AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5C80D8024E6F12400F892AA /* Better_Pull_Request_for_GitHub_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Better_Pull_Request_for_GitHub_Extension.entitlements; sourceTree = "<group>"; };
+		D5C80D8B24E6F12500F892AA /* 16x16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 16x16.png; path = ../../build/chrome/development/16x16.png; sourceTree = "<group>"; };
+		D5C80D8C24E6F12500F892AA /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = background.js; path = ../../build/chrome/development/background.js; sourceTree = "<group>"; };
+		D5C80D8D24E6F12500F892AA /* options.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = options.js; path = ../../build/chrome/development/options.js; sourceTree = "<group>"; };
+		D5C80D8E24E6F12500F892AA /* 128x128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 128x128.png; path = ../../build/chrome/development/128x128.png; sourceTree = "<group>"; };
+		D5C80D8F24E6F12500F892AA /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = ../../build/chrome/development/manifest.json; sourceTree = "<group>"; };
+		D5C80D9024E6F12500F892AA /* 48x48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 48x48.png; path = ../../build/chrome/development/48x48.png; sourceTree = "<group>"; };
+		D5C80D9124E6F12500F892AA /* options.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = options.html; path = ../../build/chrome/development/options.html; sourceTree = "<group>"; };
+		D5C80D9224E6F12500F892AA /* options.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = options.css; path = ../../build/chrome/development/options.css; sourceTree = "<group>"; };
+		D5C80D9324E6F12500F892AA /* better_github_prs.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = better_github_prs.js; path = ../../build/chrome/development/better_github_prs.js; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D5C80D6024E6F12200F892AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5C80D7224E6F12400F892AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5C80D7B24E6F12400F892AA /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D5C80D5A24E6F12200F892AA = {
+			isa = PBXGroup;
+			children = (
+				D5C80D6524E6F12200F892AA /* Better Pull Request for GitHub */,
+				D5C80D7C24E6F12400F892AA /* Better Pull Request for GitHub Extension */,
+				D5C80D7924E6F12400F892AA /* Frameworks */,
+				D5C80D6424E6F12200F892AA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D5C80D6424E6F12200F892AA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D5C80D6324E6F12200F892AA /* Better Pull Request for GitHub.app */,
+				D5C80D7524E6F12400F892AA /* Better Pull Request for GitHub Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D5C80D6524E6F12200F892AA /* Better Pull Request for GitHub */ = {
+			isa = PBXGroup;
+			children = (
+				D5C80D6624E6F12200F892AA /* Better_Pull_Request_for_GitHub.entitlements */,
+				D5C80D6724E6F12200F892AA /* AppDelegate.swift */,
+				D5C80D6924E6F12200F892AA /* Main.storyboard */,
+				D5C80D6C24E6F12200F892AA /* ViewController.swift */,
+				D5C80D6E24E6F12400F892AA /* Assets.xcassets */,
+				D5C80D7024E6F12400F892AA /* Info.plist */,
+			);
+			path = "Better Pull Request for GitHub";
+			sourceTree = "<group>";
+		};
+		D5C80D7924E6F12400F892AA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D5C80D7A24E6F12400F892AA /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D5C80D7C24E6F12400F892AA /* Better Pull Request for GitHub Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D5C80D8A24E6F12500F892AA /* Resources */,
+				D5C80D7D24E6F12400F892AA /* SafariWebExtensionHandler.swift */,
+				D5C80D7F24E6F12400F892AA /* Info.plist */,
+				D5C80D8024E6F12400F892AA /* Better_Pull_Request_for_GitHub_Extension.entitlements */,
+			);
+			path = "Better Pull Request for GitHub Extension";
+			sourceTree = "<group>";
+		};
+		D5C80D8A24E6F12500F892AA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D5C80D8B24E6F12500F892AA /* 16x16.png */,
+				D5C80D8C24E6F12500F892AA /* background.js */,
+				D5C80D8D24E6F12500F892AA /* options.js */,
+				D5C80D8E24E6F12500F892AA /* 128x128.png */,
+				D5C80D8F24E6F12500F892AA /* manifest.json */,
+				D5C80D9024E6F12500F892AA /* 48x48.png */,
+				D5C80D9124E6F12500F892AA /* options.html */,
+				D5C80D9224E6F12500F892AA /* options.css */,
+				D5C80D9324E6F12500F892AA /* better_github_prs.js */,
+			);
+			name = Resources;
+			path = "Better Pull Request for GitHub Extension";
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D5C80D6224E6F12200F892AA /* Better Pull Request for GitHub */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5C80D8724E6F12400F892AA /* Build configuration list for PBXNativeTarget "Better Pull Request for GitHub" */;
+			buildPhases = (
+				D5C80D5F24E6F12200F892AA /* Sources */,
+				D5C80D6024E6F12200F892AA /* Frameworks */,
+				D5C80D6124E6F12200F892AA /* Resources */,
+				D5C80D8624E6F12400F892AA /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D5C80D7824E6F12400F892AA /* PBXTargetDependency */,
+			);
+			name = "Better Pull Request for GitHub";
+			productName = "Better Pull Request for GitHub";
+			productReference = D5C80D6324E6F12200F892AA /* Better Pull Request for GitHub.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D5C80D7424E6F12400F892AA /* Better Pull Request for GitHub Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5C80D8324E6F12400F892AA /* Build configuration list for PBXNativeTarget "Better Pull Request for GitHub Extension" */;
+			buildPhases = (
+				D5C80D7124E6F12400F892AA /* Sources */,
+				D5C80D7224E6F12400F892AA /* Frameworks */,
+				D5C80D7324E6F12400F892AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Better Pull Request for GitHub Extension";
+			productName = "Better Pull Request for GitHub Extension";
+			productReference = D5C80D7524E6F12400F892AA /* Better Pull Request for GitHub Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D5C80D5B24E6F12200F892AA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					D5C80D6224E6F12200F892AA = {
+						CreatedOnToolsVersion = 12.0;
+					};
+					D5C80D7424E6F12400F892AA = {
+						CreatedOnToolsVersion = 12.0;
+					};
+				};
+			};
+			buildConfigurationList = D5C80D5E24E6F12200F892AA /* Build configuration list for PBXProject "Better Pull Request for GitHub" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D5C80D5A24E6F12200F892AA;
+			productRefGroup = D5C80D6424E6F12200F892AA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D5C80D6224E6F12200F892AA /* Better Pull Request for GitHub */,
+				D5C80D7424E6F12400F892AA /* Better Pull Request for GitHub Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D5C80D6124E6F12200F892AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5C80D6F24E6F12400F892AA /* Assets.xcassets in Resources */,
+				D5C80D6B24E6F12200F892AA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5C80D7324E6F12400F892AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5C80D9A24E6F12500F892AA /* options.html in Resources */,
+				D5C80D9C24E6F12500F892AA /* better_github_prs.js in Resources */,
+				D5C80D9924E6F12500F892AA /* 48x48.png in Resources */,
+				D5C80D9724E6F12500F892AA /* 128x128.png in Resources */,
+				D5C80D9524E6F12500F892AA /* background.js in Resources */,
+				D5C80D9824E6F12500F892AA /* manifest.json in Resources */,
+				D5C80D9624E6F12500F892AA /* options.js in Resources */,
+				D5C80D9B24E6F12500F892AA /* options.css in Resources */,
+				D5C80D9424E6F12500F892AA /* 16x16.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D5C80D5F24E6F12200F892AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5C80D6D24E6F12200F892AA /* ViewController.swift in Sources */,
+				D5C80D6824E6F12200F892AA /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5C80D7124E6F12400F892AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5C80D7E24E6F12400F892AA /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D5C80D7824E6F12400F892AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D5C80D7424E6F12400F892AA /* Better Pull Request for GitHub Extension */;
+			targetProxy = D5C80D7724E6F12400F892AA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D5C80D6924E6F12200F892AA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D5C80D6A24E6F12200F892AA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D5C80D8124E6F12400F892AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D5C80D8224E6F12400F892AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		D5C80D8424E6F12400F892AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Better Pull Request for GitHub Extension/Better_Pull_Request_for_GitHub_Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Better Pull Request for GitHub Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yourCompany.Better-Pull-Request-for-GitHub-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D5C80D8524E6F12400F892AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Better Pull Request for GitHub Extension/Better_Pull_Request_for_GitHub_Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Better Pull Request for GitHub Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yourCompany.Better-Pull-Request-for-GitHub-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		D5C80D8824E6F12400F892AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Better Pull Request for GitHub/Better_Pull_Request_for_GitHub.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Better Pull Request for GitHub/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yourCompany.Better-Pull-Request-for-GitHub";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D5C80D8924E6F12400F892AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Better Pull Request for GitHub/Better_Pull_Request_for_GitHub.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Better Pull Request for GitHub/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yourCompany.Better-Pull-Request-for-GitHub";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D5C80D5E24E6F12200F892AA /* Build configuration list for PBXProject "Better Pull Request for GitHub" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5C80D8124E6F12400F892AA /* Debug */,
+				D5C80D8224E6F12400F892AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5C80D8324E6F12400F892AA /* Build configuration list for PBXNativeTarget "Better Pull Request for GitHub Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5C80D8424E6F12400F892AA /* Debug */,
+				D5C80D8524E6F12400F892AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5C80D8724E6F12400F892AA /* Build configuration list for PBXNativeTarget "Better Pull Request for GitHub" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5C80D8824E6F12400F892AA /* Debug */,
+				D5C80D8924E6F12400F892AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D5C80D5B24E6F12200F892AA /* Project object */;
+}
