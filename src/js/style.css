@@ -5,6 +5,7 @@
 
 .__better_github_pr {
     display: none;
+    float: left;
 }
 
 ._better_github_pr_resizer {
@@ -27,7 +28,6 @@
 .enable_better_github_pr .__better_github_pr {
     display: block;
     position: relative;
-    margin-top: 20px;
     padding: 0 10px 0;
     width: 330px;
     height: calc(100vh - 68px);

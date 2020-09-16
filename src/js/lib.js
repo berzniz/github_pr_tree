@@ -1,5 +1,6 @@
 export const createRootElement = () => {
-  const injectionElement = document.querySelector('.pr-toolbar')
+  const injectionElement = document.querySelector('#files_bucket')
+  const nextSibiling = document.querySelector('.diff-view')
   if (!injectionElement) {
     return
   }
@@ -8,7 +9,7 @@ export const createRootElement = () => {
   if (!element) {
     element = document.createElement('div')
     element.className = rootId
-    injectionElement.appendChild(element)
+    injectionElement.insertBefore(element, nextSibiling)
   }
   return element
 }
