@@ -1,7 +1,7 @@
 import React from 'react'
 import Actions from '../actions'
-import Branch from '../branch'
 import { createFileTree, isElementVisible, StorageSync, getBrowserApi, isElementTargetAndVisible } from '../../lib'
+import { createTree } from '../../createTree'
 import BodyColor from '../bodyColor'
 
 const MIN_RESIZE_WIDTH = 55
@@ -194,7 +194,7 @@ class Tree extends React.Component {
           <div>
             {root.list.map(node => (
               <span key={node.nodeLabel}>
-                <Branch {...node} visibleElement={visibleElement} filter={filter} />
+                {createTree({ ...node, visibleElement, filter })}
               </span>
             ))}
           </div>
