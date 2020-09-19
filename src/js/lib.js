@@ -180,6 +180,16 @@ export const isElementVisible = (el) => {
   return (vertInView && horInView)
 }
 
+export const isElementTarget = (el) => {
+  if (!el) {
+    return false
+  }
+
+  return el.matches(':target')
+}
+
+export const isElementTargetAndVisible = (el) => isElementTarget(el) && isElementVisible(el)
+
 const EMPTY_FILTER = ''
 
 export const getBrowserApi = () => {

@@ -1,6 +1,6 @@
 import React from 'react'
 import Actions from '../actions'
-import { createFileTree, isElementVisible, StorageSync, getBrowserApi } from '../../lib'
+import { createFileTree, isElementVisible, StorageSync, getBrowserApi, isElementTargetAndVisible } from '../../lib'
 import { createTree } from '../../createTree'
 import BodyColor from '../bodyColor'
 
@@ -118,7 +118,7 @@ class Tree extends React.Component {
     const { visibleElement } = this.state
     const { root } = this.props
     const { diffElements = [] } = root
-    const nextVisibleElement = diffElements.find(isElementVisible)
+    const nextVisibleElement = diffElements.find(isElementTargetAndVisible) || diffElements.find(isElementVisible)
     if (nextVisibleElement !== visibleElement) {
       this.setState({
         visibleElement: nextVisibleElement
