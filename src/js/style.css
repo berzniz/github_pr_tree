@@ -26,11 +26,11 @@
 
 .enable_better_github_pr .__better_github_pr {
     display: block;
-    position: relative;
-    margin-top: 20px;
+    position: absolute;
+    margin-top: 60px;
     padding: 0 10px 0;
     width: 330px;
-    height: calc(100vh - 68px);
+    height: calc(100vh - 60px);
     background-color: #ffffff;
     border: 1px solid #e1e4e8;
     box-sizing: border-box;
