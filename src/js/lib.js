@@ -204,10 +204,8 @@ export const StorageSync = {
   save () {
     return new Promise(resolve => {
       const diffStats = document.getElementById('diffStats').checked
-      const darkMode = document.getElementById('darkMode').checked
       const options = {
-        diffStats,
-        darkMode
+        diffStats
       }
 
       if (window.chrome) {
@@ -220,8 +218,7 @@ export const StorageSync = {
   get () {
     return new Promise(resolve => {
       const defaults = {
-        diffStats: false,
-        darkMode: false
+        diffStats: false
       }
       if (window.chrome) {
         window.chrome.storage.sync.get(defaults, resolve)
