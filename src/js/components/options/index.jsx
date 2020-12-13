@@ -1,6 +1,5 @@
 import React from 'react'
 import { StorageSync } from '../../lib'
-import BodyColor from '../bodyColor'
 
 const chromeStoreUrl = 'https://chrome.google.com/webstore/detail/github-pull-request-tree/nfhdjopbhlggibjlimhdbogflgmbiahc'
 const firefoxStoreUrl = 'https://addons.mozilla.org/en-US/firefox/addon/better-pull-request-for-github/'
@@ -28,7 +27,6 @@ class Options extends React.Component {
   render () {
     return (
       <div className='container'>
-        <BodyColor isDark={false} />
         <div className='text-center'>
           <h1>Better Pull Request</h1>
           <p>

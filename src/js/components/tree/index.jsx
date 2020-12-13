@@ -2,7 +2,6 @@ import React from 'react'
 import Actions from '../actions'
 import { createFileTree, isElementVisible, StorageSync, getBrowserApi, isElementTargetAndVisible } from '../../lib'
 import { createTree } from '../../createTree'
-import BodyColor from '../bodyColor'
 
 const MIN_RESIZE_WIDTH = 55
 const MAX_RESIZE_WIDTH = 700
@@ -174,7 +173,7 @@ class Tree extends React.Component {
   }
 
   render () {
-    const { root, filter, show, visibleElement, options } = this.state
+    const { root, filter, show, visibleElement } = this.state
 
     if (!show) {
       return null
@@ -199,7 +198,6 @@ class Tree extends React.Component {
             ))}
           </div>
         </div>
-        <BodyColor isDark={options.darkMode} />
       </div>
     )
   }
