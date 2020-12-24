@@ -5,6 +5,47 @@
 
 .__better_github_pr {
     display: none;
+
+    /* Fallbacks - We will try to use github's colors first */
+    --bgpr-background: #fff;
+    --bgpr-color: #000;
+    --bgpr-border: #e1e4e8;
+
+    --bgpr-filter-background: #efefef;
+    --bgpr-filter-color: #666;
+    --bgpr-filter-border: #efefef;
+    --bgpr-filter-border-focus: #ddd;
+    --bgpr-filter-placeholder-color: #777;
+
+    --bgpr-item-hover-background: #efefef;
+
+    --bgpr-file-highlight-background: #ebebeb;
+    --bgpr-file-filter-color: #000;
+    --bgpr-file-filter-background: #fffbdd;
+    --bgpr-file-changes-color: #888;
+
+    --bgpr-addition-color: #2cbe4e;
+    --bgpr-deletion-color: #b22;
+}
+
+/* Define fallbacks in dark mode */
+[data-color-mode=dark] .__better_github_pr {
+    --bgpr-background: #0d1117;
+    --bgpr-color: #bebebe;
+    --bgpr-border: #484848;
+
+    --bgpr-filter-background: #42433e;
+    --bgpr-filter-color: #fff;
+    --bgpr-filter-border: #333;
+    --bgpr-filter-border-focus: #000;
+    --bgpr-filter-placeholder-color: #fff;
+
+    --bgpr-item-hover-background: #42433e;
+
+    --bgpr-file-highlight-background: #42433e;
+    --bgpr-file-filter-color: #333;
+    --bgpr-file-filter-background: #e4af3c;
+    --bgpr-file-changes-color: #999;
 }
 
 ._better_github_pr_resizer {
@@ -31,8 +72,9 @@
     padding: 0 10px 0;
     width: 330px;
     height: calc(100vh - 60px);
-    background-color: #ffffff;
-    border: 1px solid #e1e4e8;
+    background-color: var(--color-bg-canvas, var(--bgpr-background));
+    border: 1px solid var(--color-border-primary, var(--bgpr-border));
+    color: var(--color-text-primary, var(--bgpr-color));
     box-sizing: border-box;
     border-radius: 3px;
 }
@@ -64,20 +106,26 @@
     padding: 10px 0;
     width: 100%;
 }
+.__better_github_pr .actions button {
+    color: var(--color-text-primary, var(--bgpr-color));
+}
 
 .__better_github_pr .actions-filter {
     flex: 1;
     padding: 5px 10px;
     border-radius: 4px;
     outline: none;
-    background: #efefef;
-    color: #666666;
-    border: 1px solid #efefef;
+    background: var(--color-auto-gray-2, var(--bgpr-filter-background));
+    color: var(--color-diff-blob-hunk-text, var(--bgpr-filter-color));
+    border: 1px solid var(--color-auto-gray-2, var(--bgpr-filter-border));
     transition: border .2s;
+}
+.__better_github_pr .actions-filter::placeholder {
+    color: var(--bgpr-filter-placeholder-color);
 }
 .__better_github_pr .actions-filter:focus {
     outline: none;
-    border: 1px solid #dddddd;
+    border: 1px solid var(--color-border-primary, var(--bgpr-filter-border-focus));
 }
 
 .__better_github_pr .actions-small-button
@@ -134,7 +182,7 @@
 }
 
 .tree-view_item:hover {
-    background-color: #efefef;
+    background-color: var(--color-auto-gray-2, var(--bgpr-item-hover-background));
 }
 
 .tree-view_arrow {
@@ -190,7 +238,7 @@
 }
 
 .github-pr-file.github-pr-file-highlight {
-    background: #ebebeb;
+    background: var(--color-auto-gray-2, var(--bgpr-file-highlight-background));
 }
 
 .github-pr-file.github-pr-file-deleted {
@@ -202,13 +250,13 @@
 }
 
 .github-pr-file > span.changes > .number {
-  color: #888888;
+  color: var(--color-text-secondary, var(--bgpr-file-changes-color));
   margin-left: 8px;
   margin-right: 4px;
 }
 
 .github-pr-file span.addition {
-    background-color: #2cbe4e;
+    background-color: var(--color-diffstat-addition-bg, var(--bgpr-addition-color));
 }
 
 .github-pr-file span.change-block {
@@ -220,11 +268,12 @@
 }
 
 .github-pr-file span.deletion {
-    background-color: #b22;
+    background-color: var(--color-diffstat-deletion-bg, var(--bgpr-deletion-color));
 }
 
 .github-pr-file-highlight-filter {
-    background: #fffbdd;
+    color: var(--bgpr-file-filter-color);
+    background: var(--bgpr-file-filter-background);
 }
 
 .github-pr-file-comment {
@@ -236,51 +285,4 @@
 .github-pr-file-checkmark {
     color: #2cbe4e;
     margin-left: 5px;
-}
-
-/* Dark mode */
-
-.__better_github_pr_dark_mode .__better_github_pr {
-    border-color: #484848;
-    background-color: #202020;
-    color: #bebebe;
-}
-
-.__better_github_pr_dark_mode .__better_github_pr .link-gray-dark {
-    color: #bebebe !important;
-}
-
-.__better_github_pr_dark_mode .github-pr-file > span.changes > .number {
-    color: #999999;
-}
-
-.__better_github_pr_dark_mode .github-pr-file.github-pr-file-highlight,
-.__better_github_pr_dark_mode .tree-view_item:hover {
-    background-color: #42433E;
-}
-
-.__better_github_pr_dark_mode .__better_github_pr .actions-filter {
-    background-color: #42433E;
-    border-color: #333333;
-    color: #ffffff;
-}
-
-.__better_github_pr_dark_mode .__better_github_pr .actions-filter:focus {
-    border-color: #000000;
-}
-
-.__better_github_pr_dark_mode .__better_github_pr .actions-filter::placeholder {
-    color: #ffffff;
-}
-
-.__better_github_pr_dark_mode .__better_github_pr .settings-button,
-.__better_github_pr_dark_mode .__better_github_pr .close-button,
-.__better_github_pr_dark_mode .__better_github_pr .full-width-button,
-.__better_github_pr_dark_mode .__better_github_pr .reload-tree-button {
-    color: #ffffff;
-}
-
-.__better_github_pr_dark_mode .__better_github_pr .github-pr-file-highlight-filter {
-    background: #e4af3c;
-    color: #333333;
 }

@@ -20,8 +20,3 @@ body {
     cursor: not-allowed;
     opacity: 0.5;
 }
-
-.__better_github_pr_dark_mode  {
-    background-color: #282923;
-    color: #ffffff;
-}
