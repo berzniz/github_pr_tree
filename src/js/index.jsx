@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import Tree from './components/tree'
-import { createFileTree, createRootElement, getBrowserApi } from './lib'
+import { createFileTree, createRootElement, getBrowserApi, hideAllDiffs, StorageSync } from './lib'
 
 import './style.css'
 
@@ -40,6 +40,8 @@ class Top extends React.Component {
 
     if (fileCount !== count) {
       setTimeout(this.calculateTree.bind(this), 100)
+    } else {
+      initSingleDiff()
     }
   }
 
@@ -83,6 +85,26 @@ const loadFonts = () => {
       const loadedFont = await fontFace.load()
       document.fonts.add(loadedFont)
     })
+}
+
+const initSingleDiff = async () => {
+  const options = await StorageSync.get()
+  if (!options.singleDiff) {
+    return
+  }
+
+  hideAllDiffs()
+
+  const id = window.location.href.split('#')[1]
+
+  // if we have a diff ref in the URL try to unhide it
+  if (id) {
+    const currentDiff = document.getElementById(id)
+
+    if (currentDiff) {
+      currentDiff.style.display = 'block'
+    }
+  }
 }
 
 const start = () => {

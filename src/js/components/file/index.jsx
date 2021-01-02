@@ -1,12 +1,13 @@
 import React from 'react'
 import fileIcons from 'file-icons-js'
 import DiffStats from '../diffStats'
-import { StorageSync } from '../../lib'
-
+import { StorageSync, hideAllDiffs } from '../../lib'
 class File extends React.Component {
   constructor (props) {
     super(props)
     this.state = {}
+
+    this.onClick = this.onClick.bind(this)
   }
 
   async componentDidMount () {
@@ -21,6 +22,22 @@ class File extends React.Component {
 
   componentWillUnmount () {
     this.unmounted = true
+  }
+
+  onClick () {
+    const { href } = this.props
+    const { options } = this.state
+
+    const id = href.split('#')[1]
+    const currentDiff = document.getElementById(id)
+
+    // hide all elements but the selected one
+    if (options.singleDiff) {
+      hideAllDiffs()
+
+      // get the diff id to show it
+      currentDiff.style.display = 'block'
+    }
   }
 
   getHighlight ({ name, filter, index }) {
@@ -53,7 +70,7 @@ class File extends React.Component {
     return (
       <div className={topClassName}>
         <span className={`icon ${className}`} />
-        <a href={href} className='link-gray-dark'>{highlightedName}</a>
+        <a href={href} className='link-gray-dark' onClick={this.onClick}>{highlightedName}</a>
         {options.diffStats && diffStats && <DiffStats diffStats={diffStats} />}
         {hasComments ? (
           <svg className='github-pr-file-comment octicon octicon-comment text-gray' viewBox='0 0 16 16' width='16' height='16' aria-hidden='true'>

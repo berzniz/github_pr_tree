@@ -26,8 +26,8 @@ export const createTree = ({ nodeLabel, list, href, hasComments, isDeleted, diff
 
   return (
     <Folder nodeLabel={nodeLabel} isViewed={rawChildren.every(child => child.props.isViewed)} >
-      {rawChildren.map(node => (
-        <span key={node.nodeLabel}>
+      {rawChildren.map((node, index) => (
+        <span key={`${node.nodeLabel}-${index}`}>
           {node}
         </span>
       ))}

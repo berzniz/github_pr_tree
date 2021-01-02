@@ -48,6 +48,15 @@ class Options extends React.Component {
             />
             <span className='label-body'>Show <strong>Diff Stats</strong> next to files</span>
           </label>
+          <label className='label-enabled'>
+            <input
+              id='singleDiff'
+              type='checkbox'
+              checked={Boolean(this.state.singleDiff)}
+              onChange={this.updateOptions}
+            />
+            <span className='label-body'>Show <strong>Single Diff</strong> for a selected file</span>
+          </label>
         </div>
       </div>
     )

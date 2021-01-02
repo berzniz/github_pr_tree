@@ -204,8 +204,10 @@ export const StorageSync = {
   save () {
     return new Promise(resolve => {
       const diffStats = document.getElementById('diffStats').checked
+      const singleDiff = document.getElementById('singleDiff').checked
       const options = {
-        diffStats
+        diffStats,
+        singleDiff
       }
 
       if (window.chrome) {
@@ -218,7 +220,8 @@ export const StorageSync = {
   get () {
     return new Promise(resolve => {
       const defaults = {
-        diffStats: false
+        diffStats: false,
+        singleDiff: false
       }
       if (window.chrome) {
         window.chrome.storage.sync.get(defaults, resolve)
@@ -232,4 +235,13 @@ export const StorageSync = {
 export const isFileViewed = diffElement => {
   const checkbox = diffElement.querySelector('.js-reviewed-checkbox')
   return checkbox && checkbox.checked
+}
+
+// hide all the diff elements
+export const hideAllDiffs = () => {
+  const diffNodeList = document.getElementsByClassName('js-file')
+
+  for (let i = 0; i < diffNodeList.length; i++) {
+    diffNodeList[i].style.display = 'none'
+  }
 }
