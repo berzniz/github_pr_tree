@@ -18,6 +18,9 @@ build
 # Storybook
 storybook-static
 
+Better\ Pull-Request/Better\ Pull-Request/Resources/images/
+Better\ Pull-Request/Better\ Pull-Request/Resources/*.png  
+Better\ Pull-Request/Better\ Pull-Request/Resources/fonts/
 
 # Created by https://www.toptal.com/developers/gitignore/api/swift
 # Edit at https://www.toptal.com/developers/gitignore?templates=swift
