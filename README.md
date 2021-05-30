@@ -44,6 +44,13 @@ To enable the extension on your organization's domain:
 
 5. Click "Reload" on Chrome's "Manage Extensions" tab
 
+
+### Running on Safari
+```sh
+$ sh deploy_safari.sh # generates an app for MacOS with the extension 
+```
+You'll need to install generated `Better Pull-Request.app` on your macOS and enable extension for Safari.
+
 ## Testing
 
 Run tests using jest:
