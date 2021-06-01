@@ -80,6 +80,10 @@ const filterItem = (item, filter) => {
     return true
   }
 
+  if (filter[0] === '!') {
+    return item && item.toLowerCase().indexOf(filter.substr(1).toLowerCase()) < 0
+  }
+
   return item && item.toLowerCase().indexOf(filter.toLowerCase()) > -1
 }
 
