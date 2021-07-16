@@ -10,6 +10,7 @@ export const createTree = ({ nodeLabel, list, href, hasComments, isDeleted, diff
 
     return (
       <File
+        key={href}
         name={nodeLabel}
         href={href}
         hasComments={hasComments}
@@ -25,9 +26,9 @@ export const createTree = ({ nodeLabel, list, href, hasComments, isDeleted, diff
   const rawChildren = list.map(node => createTree({ ...node, visibleElement, filter }))
 
   return (
-    <Folder nodeLabel={nodeLabel} isViewed={rawChildren.every(child => child.props.isViewed)} >
+    <Folder key={nodeLabel} nodeLabel={nodeLabel} isViewed={rawChildren.every(child => child.props.isViewed)}>
       {rawChildren.map(node => (
-        <span key={node.nodeLabel}>
+        <span key={node.key}>
           {node}
         </span>
       ))}

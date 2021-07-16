@@ -8,14 +8,14 @@ class Options extends React.Component {
   constructor (props) {
     super(props)
     this.state = {}
-    this.updateOptions = this.updateOptions.bind(this)
+    this.handleOptions = this.handleOptions.bind(this)
   }
 
   async componentDidMount () {
     this.setState(await StorageSync.get())
   }
 
-  async updateOptions () {
+  async handleOptions () {
     await StorageSync.save()
     this.setState(await StorageSync.get())
   }
@@ -33,8 +33,7 @@ class Options extends React.Component {
             Thanks for using Better Pull Request {this.isChrome() ? 'Chrome' : 'Firefox'} Extension! 🎉
           </p>
           <p>
-            If you're enjoying this extension, please <a href={this.isChrome() ? chromeStoreUrl : firefoxStoreUrl} target='_blank'>rate it
-            on the {this.isChrome() ? 'Chrome' : 'Firefox'} Store</a>.
+            If you're enjoying this extension, please <a href={this.isChrome() ? chromeStoreUrl : firefoxStoreUrl} target='_blank' rel='noreferrer'>rate it on the {this.isChrome() ? 'Chrome' : 'Firefox'} Store</a>.
           </p>
         </div>
         <div>
@@ -44,7 +43,7 @@ class Options extends React.Component {
               id='diffStats'
               type='checkbox'
               checked={Boolean(this.state.diffStats)}
-              onChange={this.updateOptions}
+              onChange={this.handleOptions}
             />
             <span className='label-body'>Show <strong>Diff Stats</strong> next to files</span>
           </label>
