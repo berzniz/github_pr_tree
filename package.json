@@ -7,6 +7,7 @@
     "build": "yarn build-chrome",
     "build-chrome": "cross-env TARGET=chrome node utils/build.js",
     "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "build-safari": "cross-env TARGET=safari node utils/build.js",
     "start": "yarn start-chrome",
     "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
     "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
