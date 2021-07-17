@@ -5,6 +5,7 @@
 
 .__better_github_pr {
     display: none;
+    top: 0;
 
     /* Fallbacks - We will try to use github's colors first */
     --bgpr-background: #fff;
