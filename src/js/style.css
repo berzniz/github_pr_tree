@@ -101,6 +101,7 @@
 
 .__better_github_pr .actions {
     display: flex;
+    overflow: hidden;
     align-items: center;
     position: relative;
     padding: 10px 0;
