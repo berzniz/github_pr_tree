@@ -11,8 +11,10 @@ let observer
 const observe = () => {
   observer && observer.disconnect()
   const pjaxContainer = document.querySelector('[data-pjax-container]')
+  const pjaxContentContainer = document.querySelector('#repo-content-pjax-container')
   observer = new MutationObserver(start)
-  observer.observe(pjaxContainer, { childList: true })
+  pjaxContainer && observer.observe(pjaxContainer, { childList: true })
+  pjaxContentContainer && observer.observe(pjaxContentContainer, { childList: true })
 }
 
 class Top extends React.Component {
