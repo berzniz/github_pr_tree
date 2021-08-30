@@ -14,12 +14,12 @@ class Tree extends React.Component {
     super(props)
     this.onReloadTree = this.props.reloadTree
 
-    this.onClose = this.onClose.bind(this)
+    this.handleClose = this.handleClose.bind(this)
     this.onScroll = this.onScroll.bind(this)
     this.onResizerMouseDown = this.onResizerMouseDown.bind(this)
     this.onMouseMove = this.onMouseMove.bind(this)
     this.onMouseUp = this.onMouseUp.bind(this)
-    this.onFullWidth = this.onFullWidth.bind(this)
+    this.handleFullWidth = this.handleFullWidth.bind(this)
     this.filterFiles = this.filterFiles.bind(this)
     this.onClick = this.onClick.bind(this)
 
@@ -94,7 +94,7 @@ class Tree extends React.Component {
     }
 
     this.resizeDelta = e.clientX - this.startResizeX
-    let newWidth = this.prevWidth + this.resizeDelta
+    const newWidth = this.prevWidth + this.resizeDelta
     setTimeout(() => this.setWidth(newWidth), 0)
   }
 
@@ -126,18 +126,18 @@ class Tree extends React.Component {
     }
   }
 
-  onOptions () {
+  handleOptions () {
     window.open(getBrowserApi().runtime.getURL('options.html'))
   }
 
-  onClose () {
+  handleClose () {
     const show = false
     this.setState({ show })
     document.body.classList.toggle('enable_better_github_pr', show)
     this.setWidth(0, false)
   }
 
-  onFullWidth () {
+  handleFullWidth () {
     const fullScreenState = document.querySelector('body').classList.toggle('full-width')
     window.localStorage.setItem(fullScreenStorageKey, fullScreenState)
   }
@@ -186,9 +186,9 @@ class Tree extends React.Component {
         <Actions
           filter={filter}
           filterFiles={this.filterFiles}
-          onFullWidth={this.onFullWidth}
-          onOptions={this.onOptions}
-          onClose={this.onClose}
+          onFullWidth={this.handleFullWidth}
+          onOptions={this.handleOptions}
+          onClose={this.handleClose}
           onReloadTree={this.onReloadTree}
         />
         <div className='file-container'>

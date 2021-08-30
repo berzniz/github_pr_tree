@@ -10,6 +10,14 @@ Chrome and Firefox browser extension to show a file tree on GitHub's Pull Reques
 
 ![GitHub Pull Request](assets/screenshot.png "GitHub Pull Request")
 
+## Who made this?
+
+Tal Bereznitskey. Find me on Twitter as [@ketacode](https://twitter.com/ketacode) and on [LinkedIn](https://www.linkedin.com/in/talbereznitskey).
+
+This is an open-source community project and is not endorsed or affiliated with GitHub.
+
+Special thanks goes to [<img src="https://www.toriihq.com/favicon.ico" valign="middle" /> Torii](https://www.toriihq.com) for providing the time and resources to work on this extension.
+
 ## Install
 
 Install from the Chrome web store: [Better Pull Requests for GitHub for Chrome](https://chrome.google.com/webstore/detail/nfhdjopbhlggibjlimhdbogflgmbiahc)
@@ -54,10 +62,4 @@ $ yarn test
 ## History
 
 Find the change log here: [Changelog](https://github.com/berzniz/github_pr_tree/releases)
-
-## Who made this?
-
-Tal Bereznitskey. Find me on Twitter as [@ketacode](https://twitter.com/ketacode) and on [LinkedIn](https://www.linkedin.com/in/talbereznitskey).
-
-This is an open-source community project and is not endorsed or affiliated with GitHub.
 

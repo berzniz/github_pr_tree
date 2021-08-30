@@ -26,15 +26,17 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        use: {
+          loader: 'babel-loader'
+        }
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader'
+        use: ['style-loader', 'css-loader']
       },
       {
         test: /\.(woff2)$/,
-        loader: 'file-loader?name=/fonts/[name].[ext]'
+        use: ['file-loader?name=/fonts/[name].[ext]']
       }
     ]
   },
@@ -49,7 +51,7 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify(NODE_ENV),
       'process.env.TARGET': JSON.stringify(TARGET)
     }),
-    new CopyWebpackPlugin(copyWebpackPlugins),
+    new CopyWebpackPlugin({ patterns: copyWebpackPlugins }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'src', 'pages', 'options.html'),
       filename: 'options.html',

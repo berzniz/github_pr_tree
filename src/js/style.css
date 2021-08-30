@@ -101,6 +101,7 @@
 
 .__better_github_pr .actions {
     display: flex;
+    overflow: hidden;
     align-items: center;
     position: relative;
     padding: 10px 0;
@@ -115,9 +116,9 @@
     padding: 5px 10px;
     border-radius: 4px;
     outline: none;
-    background: var(--color-auto-gray-2, var(--bgpr-filter-background));
+    background: var(--color-bg-secondary, var(--bgpr-filter-background));
     color: var(--color-diff-blob-hunk-text, var(--bgpr-filter-color));
-    border: 1px solid var(--color-auto-gray-2, var(--bgpr-filter-border));
+    border: 1px solid var(--color-input-border, var(--bgpr-filter-border));
     transition: border .2s;
 }
 .__better_github_pr .actions-filter::placeholder {
@@ -182,7 +183,7 @@
 }
 
 .tree-view_item:hover {
-    background-color: var(--color-auto-gray-2, var(--bgpr-item-hover-background));
+    background-color: var(--color-bg-info, var(--bgpr-item-hover-background));
 }
 
 .tree-view_arrow {
@@ -238,7 +239,7 @@
 }
 
 .github-pr-file.github-pr-file-highlight {
-    background: var(--color-auto-gray-2, var(--bgpr-file-highlight-background));
+    background: var(--color-bg-info, var(--bgpr-file-highlight-background));
 }
 
 .github-pr-file.github-pr-file-deleted {

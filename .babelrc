@@ -5,11 +5,14 @@
       {
         "modules": "auto",
         "useBuiltIns": "usage",
-        "corejs": 2,
+        "corejs": "3.15.2",
         "debug": false
       }
     ],
     "react-app"
+  ],
+  "plugins": [
+    ["@babel/plugin-proposal-private-methods", { "loose": true }]
   ],
   "env": {
     "development": {
