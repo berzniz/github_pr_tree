@@ -55,7 +55,7 @@ class Top extends React.Component {
     if (!tree) {
       return null
     }
-    return <Tree root={tree} reloadTree={this.loadTree.bind(this)}/>
+    return <Tree root={tree} reloadTree={() => this.loadTree()} />
   }
 }
 
