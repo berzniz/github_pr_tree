@@ -54,11 +54,24 @@ class Top extends React.Component {
   }
 }
 
+const isCommitsTabSelected = () => {
+  return !!document.querySelector('.tabnav-tab.selected #commits_tab_counter')
+}
+
+const isFilesTabSelected = () => {
+  return !!document.querySelector('.tabnav-tab.selected #files_tab_counter')
+}
+
+const isSupportedTabSelected = () => {
+  return isFilesTabSelected() || isCommitsTabSelected()
+}
+
 const renderTree = () => {
   const fileCount = parseInt((document.getElementById('files_tab_counter') || { innerText: 0 }).innerText, 10)
   const rootElement = createRootElement()
-  const enabled = Boolean(rootElement && fileCount > 0)
+  const enabled = Boolean(rootElement && fileCount > 0 && isSupportedTabSelected())
   document.body.classList.toggle('enable_better_github_pr', enabled)
+
   if (!enabled) {
     return
   }
