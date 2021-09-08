@@ -10,6 +10,9 @@ const copyWebpackPlugins = [
   { from: './src/pages/options.css' }
 ]
 
+// Try the environment variable, otherwise use root
+const ASSET_PATH = process.env.ASSET_PATH || '/'
+
 module.exports = {
   mode: NODE_ENV,
   entry: {
@@ -19,6 +22,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'build', TARGET, NODE_ENV),
+    publicPath: ASSET_PATH,
     filename: '[name].js'
   },
   module: {
