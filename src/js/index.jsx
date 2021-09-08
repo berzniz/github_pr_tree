@@ -55,9 +55,10 @@ class Top extends React.Component {
 }
 
 const renderTree = () => {
+  const diffViewElement = Boolean(document.querySelector('.diff-view'))
   const fileCount = parseInt((document.getElementById('files_tab_counter') || { innerText: 0 }).innerText, 10)
   const rootElement = createRootElement()
-  const enabled = Boolean(rootElement && fileCount > 0)
+  const enabled = Boolean(rootElement && diffViewElement && fileCount > 0)
   document.body.classList.toggle('enable_better_github_pr', enabled)
   if (!enabled) {
     return
