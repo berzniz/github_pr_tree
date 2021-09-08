@@ -5,6 +5,7 @@
 
 .__better_github_pr {
     display: none;
+    overflow: hidden;
 
     /* Fallbacks - We will try to use github's colors first */
     --bgpr-background: #fff;
@@ -101,7 +102,6 @@
 
 .__better_github_pr .actions {
     display: flex;
-    overflow: hidden;
     align-items: center;
     position: relative;
     padding: 10px 0;

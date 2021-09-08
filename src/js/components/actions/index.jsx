@@ -5,20 +5,20 @@ const Actions = ({ filter, filterFiles, onFullWidth, onOptions, onClose, onReloa
     <input type='text' value={filter} className='actions-filter' placeholder='Type to filter files' onChange={filterFiles} />
 
     <div className='actions-small-button'>
-      <button onClick={onReloadTree} className='reload-tree-button'>
-        <span className='tooltipped tooltipped-s' aria-label='Manually reload the tree'>
-          <svg className='octicon octicon-sync' xmlns="http://www.w3.org/2000/svg" transform="translate(0,4)" width="24" height="20" viewBox="0 0 12 16">
-            <path fillRule="evenodd" d="M10.24 7.4a4.15 4.15 0 0 1-1.2 3.6 4.346 4.346 0 0 1-5.41.54L4.8 10.4.5 9.8l.6 4.2 1.31-1.26c2.36 1.74 5.7 1.57 7.84-.54a5.876 5.876 0 0 0 1.74-4.46l-1.75-.34zM2.96 5a4.346 4.346 0 0 1 5.41-.54L7.2 5.6l4.3.6-.6-4.2-1.31 1.26c-2.36-1.74-5.7-1.57-7.85.54C.5 5.03-.06 6.65.01 8.26l1.75.35A4.17 4.17 0 0 1 2.96 5z"/>
+      <button onClick={onFullWidth} className='full-width-button' title='Toggle full width mode'>
+        <span className='tooltipped tooltipped-s' aria-label='Toggle full width mode'>
+          <svg className='octicon' xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24'>
+            <path d='M24 9h-2v-7h-7v-2h9v9zm-9 15v-2h7v-7h2v9h-9zm-15-9h2v7h7v2h-9v-9zm9-15v2h-7v7h-2v-9h9z' />
           </svg>
         </span>
       </button>
     </div>
 
     <div className='actions-small-button'>
-      <button onClick={onFullWidth} className='full-width-button' title='Toggle full width mode'>
-        <span className='tooltipped tooltipped-s' aria-label='Toggle full width mode'>
-          <svg className='octicon' xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24'>
-            <path d='M24 9h-2v-7h-7v-2h9v9zm-9 15v-2h7v-7h2v9h-9zm-15-9h2v7h7v2h-9v-9zm9-15v2h-7v7h-2v-9h9z' />
+      <button onClick={onReloadTree} className='reload-tree-button'>
+        <span className='tooltipped tooltipped-s' aria-label='Reload tree'>
+          <svg className='octicon octicon-sync' xmlns='http://www.w3.org/2000/svg' width='16px' height='16px' viewBox='0 0 16 16'>
+            <path fillRule='evenodd' d='M8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.001 7.001 0 0 1 14.95 7.16a.75.75 0 1 1-1.49.178A5.501 5.501 0 0 0 8 2.5zM1.705 8.005a.75.75 0 0 1 .834.656a5.501 5.501 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.001 7.001 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834z' />
           </svg>
         </span>
       </button>
