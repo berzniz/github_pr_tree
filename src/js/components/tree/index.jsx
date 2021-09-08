@@ -12,6 +12,7 @@ const fullScreenStorageKey = '__better_github_pr_full_screen'
 class Tree extends React.Component {
   constructor (props) {
     super(props)
+    this.onReloadTree = this.props.reloadTree
 
     this.handleClose = this.handleClose.bind(this)
     this.onScroll = this.onScroll.bind(this)
@@ -188,6 +189,7 @@ class Tree extends React.Component {
           onFullWidth={this.handleFullWidth}
           onOptions={this.handleOptions}
           onClose={this.handleClose}
+          onReloadTree={this.onReloadTree}
         />
         <div className='file-container'>
           <div>
