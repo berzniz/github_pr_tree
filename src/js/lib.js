@@ -128,13 +128,18 @@ export const createFileTree = (filter = EMPTY_FILTER) => {
 
   files.forEach(({ parts, href }) => {
     let location = tree
+
+    const hrefSplit = href.split('#')
+    const fileId = hrefSplit[hrefSplit.length - 1]
+    const diffElement = getDiffElement(fileId)
+
     if (filterItem(parts[parts.length - 1], filter)) {
+      if (diffElement) {
+        diffElement.style.display = ''
+      }
       parts.forEach((part, index) => {
         let node = location.list.find(node => node.nodeLabel === part)
         if (!node) {
-          const hrefSplit = href.split('#')
-          const fileId = hrefSplit[hrefSplit.length - 1]
-          const diffElement = getDiffElement(fileId)
           if (diffElement) {
             const hasComments = (countCommentsForFileId(fileId) > 0)
             const isDeleted = isDeletedForFileId(fileId)
@@ -154,6 +159,8 @@ export const createFileTree = (filter = EMPTY_FILTER) => {
         location.list = location.list.sort(sorter)
         location = node
       })
+    } else if (diffElement) {
+      diffElement.style.display = 'none'
     }
   })
   return {
