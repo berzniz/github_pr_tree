@@ -126,9 +126,9 @@ export const createFileTree = (filter = EMPTY_FILTER) => {
     diffElements: []
   }
 
-  files.forEach(({ parts, href }) => {
+  files.forEach(({ title, parts, href }) => {
     let location = tree
-    if (filterItem(parts[parts.length - 1], filter)) {
+    if (filterItem(title, filter)) {
       parts.forEach((part, index) => {
         let node = location.list.find(node => node.nodeLabel === part)
         if (!node) {
