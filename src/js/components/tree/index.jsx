@@ -12,9 +12,11 @@ const fullScreenStorageKey = '__better_github_pr_full_screen'
 class Tree extends React.Component {
   constructor (props) {
     super(props)
-    this.onReloadTree = this.props.reloadTree
+    this.handleOnReloadTree = this.props.reloadTree
 
     this.handleClose = this.handleClose.bind(this)
+    this.handleOnShowViewed = this.handleOnShowViewed.bind(this)
+    this.handleOnHideViewed = this.handleOnHideViewed.bind(this)
     this.onScroll = this.onScroll.bind(this)
     this.onResizerMouseDown = this.onResizerMouseDown.bind(this)
     this.onMouseMove = this.onMouseMove.bind(this)
@@ -40,7 +42,8 @@ class Tree extends React.Component {
       show: true,
       visibleElement: null,
       filter: '',
-      options: {}
+      options: {},
+      hideViewed: false
     }
   }
 
@@ -137,6 +140,14 @@ class Tree extends React.Component {
     this.setWidth(0, false)
   }
 
+  handleOnShowViewed () {
+    this.setState({ hideViewed: false })
+  }
+
+  handleOnHideViewed () {
+    this.setState({ hideViewed: true })
+  }
+
   handleFullWidth () {
     const fullScreenState = document.querySelector('body').classList.toggle('full-width')
     window.localStorage.setItem(fullScreenStorageKey, fullScreenState)
@@ -174,7 +185,7 @@ class Tree extends React.Component {
   }
 
   render () {
-    const { root, filter, show, visibleElement } = this.state
+    const { root, filter, show, visibleElement, hideViewed } = this.state
 
     if (!show) {
       return null
@@ -189,13 +200,15 @@ class Tree extends React.Component {
           onFullWidth={this.handleFullWidth}
           onOptions={this.handleOptions}
           onClose={this.handleClose}
-          onReloadTree={this.onReloadTree}
+          onReloadTree={this.handleOnReloadTree}
+          onShowViewed={this.handleOnShowViewed}
+          onHideViewed={this.handleOnHideViewed}
         />
         <div className='file-container'>
           <div>
             {root.list.map(node => (
               <span key={node.nodeLabel}>
-                {createTree({ ...node, visibleElement, filter })}
+                {createTree({ ...node, visibleElement, filter, hideViewed })}
               </span>
             ))}
           </div>

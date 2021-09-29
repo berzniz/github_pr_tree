@@ -29,7 +29,7 @@ class Top extends React.Component {
     this.calculateTree()
   }
 
-  loadTree() {
+  loadTree () {
     const { tree } = createFileTree()
     this.setState({ tree })
   }

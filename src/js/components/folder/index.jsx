@@ -8,7 +8,7 @@ class Folder extends React.Component {
   }
 
   render () {
-    const { children, nodeLabel, isViewed } = this.props
+    const { children, nodeLabel, isViewed, hideViewed } = this.props
 
     const display = (
       <div>
@@ -24,9 +24,13 @@ class Folder extends React.Component {
     )
 
     return (
-      <TreeView nodeLabel={display} defaultCollapsed={false}>
-        {children}
-      </TreeView>
+      isViewed && hideViewed
+        ? null
+        : (
+          <TreeView nodeLabel={display} defaultCollapsed={false}>
+            {children}
+          </TreeView>
+          )
     )
   }
 }
