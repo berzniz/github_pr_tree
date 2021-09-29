@@ -47,6 +47,15 @@ class Options extends React.Component {
             />
             <span className='label-body'>Show <strong>Diff Stats</strong> next to files</span>
           </label>
+          <label className='label-enabledd'>
+            <input
+              id='viewedFileBackground'
+              type='checkbox'
+              checked={Boolean(this.state.viewedFileBackground)}
+              onChange={this.handleOptions}
+            />
+            <span className='label-body'><strong>Highlight Background</strong> of files marked viewed</span>
+          </label>
         </div>
       </div>
     )

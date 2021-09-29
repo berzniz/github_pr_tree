@@ -49,10 +49,12 @@ class File extends React.Component {
 
     const index = filter ? (name.toLowerCase() || '').indexOf(filter.toLowerCase()) : -1
     const highlightedName = (index === -1) ? name : this.getHighlight({ name, filter, index })
+    
+    const backgroundHighlightColor = '#E6FFED'
 
     return (
-      <div className={topClassName}>
-        <span className={`icon ${className}`} />
+      <div className={topClassName} style={isViewed && options.viewedFileBackground ? {backgroundColor: backgroundHighlightColor} : null }>
+        <span className={`icon ${className}`}/>
         <a href={href} className='link-gray-dark'>{highlightedName}</a>
         {options.diffStats && diffStats && <DiffStats diffStats={diffStats} />}
         {hasComments
