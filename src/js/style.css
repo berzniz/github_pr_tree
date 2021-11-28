@@ -75,9 +75,9 @@
     padding: 0 10px 0;
     width: 330px;
     height: calc(100vh - 60px);
-    background-color: var(--color-bg-canvas, var(--bgpr-background));
-    border: 1px solid var(--color-border-primary, var(--bgpr-border));
-    color: var(--color-text-primary, var(--bgpr-color));
+    background-color: var(--color-canvas-default, var(--bgpr-background));
+    border: 1px solid var(--color-border-default, var(--bgpr-border));
+    color: var(--color-fg-default, var(--bgpr-color));
     box-sizing: border-box;
     border-radius: 3px;
 }
@@ -110,7 +110,7 @@
     width: 100%;
 }
 .__better_github_pr .actions button {
-    color: var(--color-text-primary, var(--bgpr-color));
+    color: var(--color-fg-default, var(--bgpr-color));
 }
 
 .__better_github_pr .actions-filter {
@@ -118,17 +118,18 @@
     padding: 5px 10px;
     border-radius: 4px;
     outline: none;
-    background: var(--color-bg-secondary, var(--bgpr-filter-background));
-    color: var(--color-diff-blob-hunk-text, var(--bgpr-filter-color));
-    border: 1px solid var(--color-input-border, var(--bgpr-filter-border));
+    background: var(--color-canvas-subtle, var(--bgpr-filter-background));
+    color: var(--color-fg-default, var(--bgpr-filter-color));
+    border: 1px solid var(--color-border-default, var(--bgpr-filter-border));
     transition: border .2s;
 }
 .__better_github_pr .actions-filter::placeholder {
-    color: var(--bgpr-filter-placeholder-color);
+    color: var(--color-fg-muted, var(--bgpr-filter-placeholder-color));
 }
+
 .__better_github_pr .actions-filter:focus {
     outline: none;
-    border: 1px solid var(--color-border-primary, var(--bgpr-filter-border-focus));
+    border: 1px solid var(--color-border-default, var(--bgpr-filter-border-focus));
 }
 
 .__better_github_pr .actions-small-button
@@ -185,7 +186,7 @@
 }
 
 .tree-view_item:hover {
-    background-color: var(--color-bg-info, var(--bgpr-item-hover-background));
+    background-color: var(--color-accent-subtle, var(--bgpr-item-hover-background));
 }
 
 .tree-view_arrow {
@@ -241,7 +242,7 @@
 }
 
 .github-pr-file.github-pr-file-highlight {
-    background: var(--color-bg-info, var(--bgpr-file-highlight-background));
+    background: var(--color-accent-subtle, var(--bgpr-file-highlight-background));
 }
 
 .github-pr-file.github-pr-file-deleted {
@@ -253,7 +254,7 @@
 }
 
 .github-pr-file > span.changes > .number {
-  color: var(--color-text-secondary, var(--bgpr-file-changes-color));
+  color: var(--color-fg-muted, var(--bgpr-file-changes-color));
   margin-left: 8px;
   margin-right: 4px;
 }
@@ -271,7 +272,7 @@
 }
 
 .github-pr-file span.deletion {
-    background-color: var(--color-diffstat-deletion-bg, var(--bgpr-deletion-color));
+    background-color: var(--color-danger-emphasis, var(--bgpr-deletion-color));
 }
 
 .github-pr-file-highlight-filter {
