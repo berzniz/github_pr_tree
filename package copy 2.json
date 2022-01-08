@@ -1,0 +1,4488 @@
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
+{
+  "name": "github_pr_tree",
+  "version": "1.0.0",
+  "description": "Add a file tree to GitHub Pull Requests",
+  "scripts": {
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs node_modules/.bin/standard -v | ./node_modules/.bin/snazzy",
+    "build": "yarn build-chrome",
+    "build-chrome": "cross-env TARGET=chrome node utils/build.js",
+    "build-firefox": "cross-env TARGET=firefox node utils/build.js",
+    "start": "yarn start-chrome",
+    "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
+    "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
+    "standard": "standard",
+    "test": "jest --watch",
+    "test-ci": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chrome-web-store-item-property": "^1.1.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.15.2",
+    "css-loader": "^6.0.0",
+    "file-icons-js": "^1.0.3",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^9.0.0",
+    "glamor": "^3.0.0-3",
+    "hoist-non-react-statics": "^3.3.2",
+    "html-webpack-plugin": "^5.3.2",
+    "prop-types": "^15.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-treeview": "^0.4.7",
+    "style-loader": "^3.1.0",
+    "webext-domain-permission-toggle": "^1.0.0",
+    "webext-dynamic-content-scripts": "^6.0.3",
+    "webpack": "^5.45.1",
+    "webpack-dev-server": "^3.11.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "jest": "^27.0.6",
+    "sanitize-html": "^2.3.2",
+    "snazzy": "^7.0.0",
+    "standard": "^16.0.3",
+    "webstore-upload": "^0.0.8"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "globals": [
+      "browser"
+    ]
+  }
+}
