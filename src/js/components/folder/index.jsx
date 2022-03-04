@@ -1,5 +1,6 @@
 import React from 'react'
 import TreeView from 'react-treeview'
+import { StorageSync } from '../../lib'
 
 class Folder extends React.Component {
   constructor (props) {
@@ -7,12 +8,24 @@ class Folder extends React.Component {
     this.state = {}
   }
 
+  async componentDidMount () {
+    const options = await StorageSync.get()
+
+    if (this.unmounted) {
+      return
+    }
+
+    this.setState({ options })
+  }
+
   render () {
-    const { children, nodeLabel, isViewed } = this.props
+    const { children, nodeLabel, isViewed, fileCount } = this.props
+    const { options = {} } = this.state
+    const fileCountLabel = fileCount > 1 ? 'files' : 'file'
 
     const display = (
-      <div>
-        {nodeLabel}
+      <div className='github-pr-folder-label'>
+        {nodeLabel} {options.fileCount && fileCount && <span className='github-pr-folder-count-label'>({fileCount} {fileCountLabel})</span>}
         {isViewed
           ? (
             <svg className='github-pr-file-checkmark octicon octicon-check' viewBox='0 0 12 16' version='1.1' width='12' height='16' aria-hidden='true'>

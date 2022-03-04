@@ -146,10 +146,13 @@ export const createFileTree = (filter = EMPTY_FILTER) => {
               hasComments,
               isDeleted,
               diffElement,
+              fileCount: 1,
               diffStats: getDiffStatsForDiffElement(diffElement)
             }
             location.list.push(node)
           }
+        } else {
+          node.fileCount = (node.fileCount || 0) + 1
         }
         location.list = location.list.sort(sorter)
         location = node
@@ -204,8 +207,10 @@ export const StorageSync = {
   save () {
     return new Promise(resolve => {
       const diffStats = document.getElementById('diffStats').checked
+      const fileCount = document.getElementById('fileCount').checked
       const options = {
-        diffStats
+        diffStats,
+        fileCount
       }
 
       if (window.chrome) {
@@ -218,7 +223,8 @@ export const StorageSync = {
   get () {
     return new Promise(resolve => {
       const defaults = {
-        diffStats: false
+        diffStats: false,
+        fileCount: true
       }
       if (window.chrome) {
         window.chrome.storage.sync.get(defaults, resolve)
