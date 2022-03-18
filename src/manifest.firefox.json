@@ -5,7 +5,7 @@
     "contextMenus",
     "storage",
     "activeTab",
-    "*://*.github.com/*"
+    "*://*.github.*"
   ],
   "optional_permissions": [
     "http://*/*",
@@ -19,7 +19,7 @@
   "content_scripts": [
     {
       "matches": [
-        "*://*.github.com/*"
+        "*://*.github.*"
       ],
       "run_at": "document_idle",
       "js": [
