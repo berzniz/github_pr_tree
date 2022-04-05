@@ -114,7 +114,7 @@ export const folderConcat = (node) => {
 }
 
 export const createFileTree = (filter = EMPTY_FILTER) => {
-  const fileInfo = [...document.querySelectorAll('.file-info > a')]
+  const fileInfo = [...document.querySelectorAll('.file-info a')]
   const files = fileInfo.map(({ title, href }) => {
     title = getCurrentFileLocation(title)
     return { title, href, parts: title.split('/') }
