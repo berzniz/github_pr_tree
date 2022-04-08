@@ -290,3 +290,12 @@
     color: #2cbe4e;
     margin-left: 5px;
 }
+
+.github-pr-folder-count-label {
+    color: #999;
+    margin-left: 3px;
+}
+
+.github-pr-folder-label {
+    white-space: nowrap;
+}

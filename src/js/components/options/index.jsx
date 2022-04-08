@@ -47,6 +47,15 @@ class Options extends React.Component {
             />
             <span className='label-body'>Show <strong>Diff Stats</strong> next to files</span>
           </label>
+          <label className='label-enabled'>
+            <input
+              id='fileCount'
+              type='checkbox'
+              checked={Boolean(this.state.fileCount)}
+              onChange={this.handleOptions}
+            />
+            <span className='label-body'>Show <strong>File Count</strong> next to folders</span>
+          </label>
         </div>
       </div>
     )
