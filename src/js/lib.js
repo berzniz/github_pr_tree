@@ -204,8 +204,10 @@ export const StorageSync = {
   save () {
     return new Promise(resolve => {
       const diffStats = document.getElementById('diffStats').checked
+      const viewedFileBackground = document.getElementById('viewedFileBackground').checked
       const options = {
-        diffStats
+        diffStats,
+        viewedFileBackground
       }
 
       if (window.chrome) {
@@ -218,7 +220,8 @@ export const StorageSync = {
   get () {
     return new Promise(resolve => {
       const defaults = {
-        diffStats: false
+        diffStats: false,
+        viewedFileBackground: false
       }
       if (window.chrome) {
         window.chrome.storage.sync.get(defaults, resolve)
