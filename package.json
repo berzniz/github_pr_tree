@@ -7,7 +7,6 @@
     "build": "yarn build-chrome",
     "build-chrome": "cross-env TARGET=chrome node utils/build.js",
     "build-firefox": "cross-env TARGET=firefox node utils/build.js",
-    "start": "yarn start-chrome",
     "start-chrome": "cross-env NODE_ENV=development TARGET=chrome node utils/start.js",
     "start-firefox": "cross-env NODE_ENV=development TARGET=firefox node utils/start.js",
     "standard": "standard",
@@ -37,8 +36,8 @@
     "react-hot-loader": "^4.13.0",
     "react-treeview": "^0.4.7",
     "style-loader": "^3.1.0",
-    "webext-domain-permission-toggle": "^1.0.0",
-    "webext-dynamic-content-scripts": "^6.0.3",
+    "webext-domain-permission-toggle": "^3.0.0",
+    "webext-dynamic-content-scripts": "^8.1.0",
     "webpack": "^5.45.1",
     "webpack-dev-server": "^3.11.2",
     "write-file-webpack-plugin": "^4.5.1"

@@ -1,14 +1,21 @@
 {
-  "manifest_version": 3,
   "name": "Better Pull Request for GitHub",
   "short_name": "Better PRs",
   "permissions": [
     "contextMenus",
-    "storage"
-  ],
-  "host_permissions": [
+    "storage",
     "*://*.github.com/*"
   ],
+  "optional_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  },
   "content_scripts": [
     {
       "matches": [
@@ -21,7 +28,7 @@
       "css": []
     }
   ],
-  "action": {
+  "browser_action": {
     "default_icon": {
       "16": "16x16.png",
       "48": "48x48.png",
@@ -30,15 +37,12 @@
     "default_popup": "options.html"
   },
   "options_page": "options.html",
+  "web_accessible_resources": ["options.html", "*.woff2"],
   "icons": {
     "16": "16x16.png",
     "48": "48x48.png",
     "128": "128x128.png"
   },
-  "web_accessible_resources": [
-    {
-      "resources": ["*.woff2"],
-      "matches": ["<all_urls>"]
-    }
-  ]
+  "manifest_version": 2,
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self';"
 }

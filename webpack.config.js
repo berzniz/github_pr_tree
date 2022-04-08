@@ -15,6 +15,7 @@ const ASSET_PATH = process.env.ASSET_PATH || '/'
 
 module.exports = {
   mode: NODE_ENV,
+  devtool: false,
   entry: {
     better_github_prs: path.join(__dirname, 'src', 'js', 'index.jsx'),
     background: path.join(__dirname, 'src', 'js', 'background.js'),

@@ -41,16 +41,21 @@ To enable the extension on your organization's domain:
     $ yarn install
     ```
 
-2. Run
+2. Run for Chrome
     ```bash
-    $ yarn start
+    $ yarn start-chrome
+    ```
+   
+   Run for Firefox:
+    ```bash
+    $ yarn start-firefox
     ```
 
-3. Load the unpackaged `build/chrome/development` folder on Chrome's "Manage Extensions" tab   
+4. Load the unpackaged `build/chrome/development` / `build/firefox/development` folder on Chrome's "Manage Extensions" tab   
 
-4. Make changes
+5. Make changes
 
-5. Click "Reload" on Chrome's "Manage Extensions" tab
+6. Click "Reload" on Chrome's / Firefox's "Manage Extensions" tab
 
 ## Testing
 
