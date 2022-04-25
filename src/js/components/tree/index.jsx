@@ -12,7 +12,7 @@ const fullScreenStorageKey = '__better_github_pr_full_screen'
 class Tree extends React.Component {
   constructor (props) {
     super(props)
-    this.onReloadTree = this.props.reloadTree
+    this.handleReloadTree = this.props.reloadTree
 
     this.handleClose = this.handleClose.bind(this)
     this.onScroll = this.onScroll.bind(this)
@@ -174,11 +174,13 @@ class Tree extends React.Component {
   }
 
   render () {
-    const { root, filter, show, visibleElement } = this.state
+    const { filter, show, visibleElement } = this.state
 
     if (!show) {
       return null
     }
+
+    const filtered = createFileTree(filter).tree
 
     return (
       <div>
@@ -189,11 +191,11 @@ class Tree extends React.Component {
           onFullWidth={this.handleFullWidth}
           onOptions={this.handleOptions}
           onClose={this.handleClose}
-          onReloadTree={this.onReloadTree}
+          onReloadTree={this.handleReloadTree}
         />
         <div className='file-container'>
           <div>
-            {root.list.map(node => (
+            {filtered.list.map(node => (
               <span key={node.nodeLabel}>
                 {createTree({ ...node, visibleElement, filter })}
               </span>
