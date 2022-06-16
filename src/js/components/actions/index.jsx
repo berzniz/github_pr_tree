@@ -2,7 +2,7 @@ import React from 'react'
 
 const Actions = ({ filter, filterFiles, onFullWidth, onOptions, onClose, onReloadTree }) => (
   <div className='actions'>
-    <input type='text' value={filter} className='actions-filter' placeholder='Type to filter files' onChange={filterFiles} />
+    <input type='text' value={filter} className='actions-filter' placeholder='Type to filter files (prefix ! to ignore)' onChange={filterFiles} />
 
     <div className='actions-small-button'>
       <button onClick={onFullWidth} className='full-width-button' title='Toggle full width mode'>
