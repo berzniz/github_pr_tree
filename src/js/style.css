@@ -169,6 +169,14 @@
     margin-left: 340px;
 }
 
+@media (min-width: 1012px) {
+    .enable_better_github_pr #files,
+    .enable_better_github_pr .commit.full-commit.prh-commit {
+        margin-left: 30px;
+    }
+}
+
+
 .enable_better_github_pr .comment-holder {
     max-width: 708px;
 }
