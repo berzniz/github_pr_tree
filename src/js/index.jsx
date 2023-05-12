@@ -7,14 +7,24 @@ import './style.css'
 
 const { document, MutationObserver, FontFace, parseInt = Number.parseInt } = window
 
-let observer
-const observe = () => {
-  observer && observer.disconnect()
-  const pjaxContainer = document.querySelector('[data-pjax-container]')
-  const pjaxContentContainer = document.querySelector('#repo-content-pjax-container')
-  observer = new MutationObserver(start)
-  pjaxContainer && observer.observe(pjaxContainer, { childList: true })
-  pjaxContentContainer && observer.observe(pjaxContentContainer, { childList: true })
+function waitForElm (selector) {
+  return new Promise(resolve => {
+    if (document.querySelector(selector)) {
+      return resolve(document.querySelector(selector))
+    }
+
+    const observer = new MutationObserver(mutations => {
+      if (document.querySelector(selector)) {
+        resolve(document.querySelector(selector))
+        observer.disconnect()
+      }
+    })
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    })
+  })
 }
 
 class Top extends React.Component {
@@ -29,7 +39,7 @@ class Top extends React.Component {
     this.calculateTree()
   }
 
-  loadTree() {
+  loadTree () {
     const { tree } = createFileTree()
     this.setState({ tree })
   }
@@ -93,11 +103,8 @@ const loadFonts = () => {
     })
 }
 
-const start = () => {
-  observe()
-  renderTree()
-}
-
 loadFonts()
-observe()
-start()
+renderTree()
+waitForElm('#files_tab_counter').then(() => {
+  renderTree()
+})
